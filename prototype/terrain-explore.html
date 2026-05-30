@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terrain — Explore by Life Pattern</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-text-body:  rgba(245,240,235,0.88);
+      --color-text-muted: rgba(245,240,235,0.75);
+      --accent:           #0047FF;
+      --card-border:      rgba(245,240,235,0.15);
+      --peek: 40px;
+      --gap: 12px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--color-text-body);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Header ─── */
+
+    .header {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 24px 8px;
+    }
+
+    .wordmark {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--color-text-body);
+    }
+
+    /* ─── Explore header ─── */
+
+    .explore-header {
+      flex-shrink: 0;
+      padding: 8px 28px 20px;
+    }
+
+    .eyebrow {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      color: var(--color-text-body);
+    }
+
+    /* ─── Carousel ─── */
+
+    .carousel-track {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 var(--peek);
+      gap: var(--gap);
+      scroll-padding-left: var(--peek);
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Trailing spacer — ensures last card gets full trailing peek in WebKit */
+    .carousel-track::after {
+      content: '';
+      flex: 0 0 1px;
+    }
+
+    /* ─── Card ─── */
+
+    .card {
+      flex: 0 0 calc(100vw - (var(--peek) * 2));
+      scroll-snap-align: start;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* Legibility gradient at card bottom */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.45) 42%,
+        rgba(0, 0, 0, 0) 65%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 3;
+      padding: 18px 22px 52px;
+    }
+
+    .card-name {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(2rem, 8.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--color-text-body);
+      margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: clamp(0.95rem, 3vw, 1.1rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Card backgrounds — pure gradient, no decorative layers ─── */
+
+    .card-1 { background: linear-gradient(158deg, #0A2E38 0%, #103828 55%, #1C5040 100%); }
+    .card-2 { background: linear-gradient(158deg, #2E1308 0%, #5C2A10 55%, #7A3A18 100%); }
+    .card-3 { background: linear-gradient(158deg, #0C1E2E 0%, #182838 55%, #223050 100%); }
+    .card-4 { background: linear-gradient(158deg, #162818 0%, #204030 55%, #2C4E32 100%); }
+    .card-5 { background: linear-gradient(158deg, #050A1E 0%, #08102E 55%, #0A1648 100%); }
+    .card-6 { background: linear-gradient(158deg, #2A1208 0%, #7A3A18 50%, #C07840 100%); }
+
+    /* ─── Pagination ─── */
+
+    .pagination {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 16px 24px 30px;
+    }
+
+    .dot {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background: rgba(245, 240, 235, 0.2);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s ease, width 0.3s ease;
+    }
+
+    .dot.active {
+      background: rgba(245, 240, 235, 0.85);
+      width: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <span class="wordmark">Terrain</span>
+  </header>
+
+  <div class="explore-header">
+    <p class="eyebrow">Explore by Life Pattern</p>
+    <h2 class="section-title">Horizon Reveal</h2>
+  </div>
+
+  <div class="carousel-track" id="carousel">
+
+    <div class="card card-1">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">Outdoor and Infrastructure</p>
+        <p class="card-subtitle">Grid, energy, construction</p>
+      </div>
+    </div>
+
+    <div class="card card-2">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">Building Systems</p>
+        <p class="card-subtitle">HVAC, plumbing, climate control</p>
+      </div>
+    </div>
+
+    <div class="card card-3">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">Industrial and Technical</p>
+        <p class="card-subtitle">Machinery, robotics, maintenance</p>
+      </div>
+    </div>
+
+    <div class="card card-4">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">Healthcare Trades</p>
+        <p class="card-subtitle">Sonography, radiology, medical equipment</p>
+      </div>
+    </div>
+
+    <div class="card card-5">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">High Specialisation</p>
+        <p class="card-subtitle">Pipeline, aerospace, underwater</p>
+      </div>
+    </div>
+
+    <div class="card card-6">
+<div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-name">Own Your Future</p>
+        <p class="card-subtitle">Trades as the path to ownership</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pagination" id="pagination">
+    <button class="dot active" data-index="0" aria-label="Card 1"></button>
+    <button class="dot" data-index="1" aria-label="Card 2"></button>
+    <button class="dot" data-index="2" aria-label="Card 3"></button>
+    <button class="dot" data-index="3" aria-label="Card 4"></button>
+    <button class="dot" data-index="4" aria-label="Card 5"></button>
+    <button class="dot" data-index="5" aria-label="Card 6"></button>
+  </div>
+
+  <script>
+    const track = document.getElementById('carousel');
+    const dots = document.querySelectorAll('.dot');
+    const cards = document.querySelectorAll('.card');
+    const GAP = 12;
+
+    function updateDots(index) {
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const cardWidth = cards[0].offsetWidth;
+        const index = Math.round(track.scrollLeft / (cardWidth + GAP));
+        updateDots(Math.max(0, Math.min(index, cards.length - 1)));
+      }, 60);
+    }, { passive: true });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth;
+        track.scrollTo({ left: i * (cardWidth + GAP), behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

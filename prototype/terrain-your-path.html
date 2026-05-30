@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terrain — Your Path</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --serif:                'Georgia', 'Times New Roman', serif;
+      --mono:                 'IBM Plex Mono', Courier, monospace;
+      --color-text-body:      rgba(245,240,235,0.88);
+      --color-text-muted:     rgba(245,240,235,0.75);
+      --accent:               #0047FF;
+      --card-bg:              #241E14;
+      --card-border:          rgba(245,240,235,0.15);
+      --input-border-default: rgba(245,240,235,0.45);
+      --input-border-focus:   #0047FF;
+      --caret-color:          #0047FF;
+      --side:                 clamp(28px, 7vw, 56px);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%);
+      background-attachment: fixed;
+      font-family: var(--mono);
+      color: var(--color-text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Grain overlay ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    /* ─── Shared screen base ─── */
+
+    .screen {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── SCREEN 1: Questions ─── */
+
+    #screen-questions {
+      transition: opacity 0.6s ease;
+    }
+
+    .progress-dots {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 32px 24px 0;
+    }
+
+    .pdot {
+      height: 5px;
+      width: 5px;
+      border-radius: 3px;
+      background: rgba(245, 240, 235, 0.16);
+      transition: background 0.4s ease, width 0.4s ease;
+    }
+
+    .pdot.active {
+      background: rgba(245, 240, 235, 0.82);
+      width: 18px;
+    }
+
+    .pdot.done {
+      background: rgba(245, 240, 235, 0.35);
+    }
+
+    /* Questions wrapper — fills remaining screen height */
+    .questions-wrapper {
+      flex: 1;
+      position: relative;
+    }
+
+    /* Individual question — layered, crossfade via opacity */
+    .question {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--side) 40px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    .question.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .q-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+
+    .q-text {
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 5.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--color-text-body);
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .q-input {
+      font-family: var(--mono);
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-text-body);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--input-border-default);
+      outline: none;
+      resize: none;
+      width: 100%;
+      max-width: 520px;
+      padding: 12px 0 14px;
+      caret-color: var(--caret-color);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .q-input:focus {
+      border-bottom-color: var(--input-border-focus);
+    }
+
+    .q-hint {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      opacity: 0.55;
+      margin-top: 10px;
+    }
+
+    /* Continue button — text link style, fades in on input */
+    .q-continue {
+      display: inline-block;
+      margin-top: 24px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease;
+      pointer-events: none;
+      text-align: left;
+    }
+
+    .q-continue.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .q-continue:hover {
+      color: var(--color-text-body);
+    }
+
+    /* CTA button — terracotta pill, fades in on Q3 input */
+    .q-reveal {
+      display: inline-block;
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--color-text-body);
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s ease, transform 0.4s ease,
+                  filter 0.2s ease, box-shadow 0.25s ease;
+      pointer-events: none;
+      box-shadow: 0 2px 12px rgba(0, 71, 255, 0.22);
+    }
+
+    .q-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .q-reveal:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 4px 20px rgba(0, 71, 255, 0.38);
+    }
+
+    /* ─── SCREEN 2: The Card ─── */
+
+    #screen-card {
+      display: none;
+      opacity: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 48px var(--side) 32px;
+      transition: opacity 0.6s ease;
+      gap: 0;
+    }
+
+    #screen-card.visible {
+      opacity: 1;
+    }
+
+    .path-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: clamp(32px, 7vw, 52px);
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .card-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .card-statement {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 6vw, 2.6rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #0033CC 0%, #0047FF 50%, #4D80FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+    }
+
+    /* ─── Action blocks ─── */
+
+    .action-group {
+      margin-bottom: 24px;
+    }
+
+    .action-block {
+      position: relative;
+      overflow: hidden;
+      background: rgba(245, 240, 235, 0.034);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 18px 16px 18px 22px;
+      margin-bottom: 10px;
+    }
+
+    .action-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .action-block::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #0033CC, #0047FF, #4D80FF);
+    }
+
+    .action-num {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--serif);
+      font-size: 5.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: rgba(245, 240, 235, 0.055);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .action-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .action-text {
+      font-family: var(--mono);
+      font-size: clamp(0.82rem, 2.2vw, 0.92rem);
+      font-weight: 400;
+      line-height: 1.72;
+      color: var(--color-text-body);
+    }
+
+    /* ─── Card CTA ─── */
+
+    .card-cta {
+      display: inline-block;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--color-text-body);
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0, 71, 255, 0.22);
+      transition: filter 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+      text-align: center;
+    }
+
+    .card-cta:hover {
+      filter: brightness(1.15);
+      box-shadow: 0 4px 20px rgba(0, 71, 255, 0.38);
+      transform: translateY(-1px);
+    }
+
+    .card-note {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+      margin-bottom: 36px;
+    }
+
+    .card-wordmark {
+      display: block;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: var(--color-text-muted);
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .card-footer {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-align: center;
+      margin-top: 28px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Screen 1: Questions ─── -->
+  <div id="screen-questions" class="screen">
+
+    <div class="progress-dots">
+      <div class="pdot active" id="pd-0"></div>
+      <div class="pdot" id="pd-1"></div>
+      <div class="pdot" id="pd-2"></div>
+    </div>
+
+    <div class="questions-wrapper">
+
+      <div class="question active" id="q-0">
+        <p class="q-label">Where are you right now</p>
+        <p class="q-text">What does your life look like today — are you still in school, just finished, working something temporary, or figuring it out?</p>
+        <textarea class="q-input" rows="1" spellcheck="false"></textarea>
+        <p class="q-hint">Press Enter to continue</p>
+        <button class="q-continue">Continue &rarr;</button>
+      </div>
+
+      <div class="question" id="q-1">
+        <p class="q-label">What pulled you in</p>
+        <p class="q-text">What was the moment in Blake's story that felt most true to you?</p>
+        <textarea class="q-input" rows="1" spellcheck="false"></textarea>
+        <p class="q-hint">Press Enter to continue</p>
+        <button class="q-continue">Continue &rarr;</button>
+      </div>
+
+      <div class="question" id="q-2">
+        <p class="q-label">What's in the way</p>
+        <p class="q-text">What's the one thing that would stop you from taking a first step this week?</p>
+        <textarea class="q-input" rows="1" spellcheck="false"></textarea>
+        <p class="q-hint">Press Enter to see your path</p>
+        <button class="q-reveal">See your path</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── Screen 2: The Card ─── -->
+  <div id="screen-card" class="screen">
+
+    <div class="path-card">
+      <p class="card-label">Your Next Step</p>
+      <p class="card-statement">Find one person already doing this work and ask them one honest question.</p>
+
+      <div class="action-group">
+        <div class="action-block">
+          <span class="action-num">01</span>
+          <p class="action-label">This Week —</p>
+          <p class="action-text">Go to r/electricians on Reddit. Read the last 10 posts tagged 'apprentice'. You're not posting yet — just listening.</p>
+        </div>
+        <div class="action-block">
+          <span class="action-num">02</span>
+          <p class="action-label">This Week —</p>
+          <p class="action-text">Search 'IBEW Local + [your city]' and find when their next open application window is. Write the date down somewhere physical.</p>
+        </div>
+        <div class="action-block">
+          <span class="action-num">03</span>
+          <p class="action-label">This Week —</p>
+          <p class="action-text">Text or email one person you know who works with their hands for a living. Ask them one question about their first year.</p>
+        </div>
+      </div>
+
+      <button class="card-cta">Start with action 01</button>
+      <p class="card-note">The union hall, a job site fence line,<br>a Reddit thread at midnight —<br>the terrain opens when you ask someone<br>who's already on it.</p>
+      <span class="card-wordmark">Terrain</span>
+    </div>
+
+    <p class="card-footer">One conversation changes the terrain.</p>
+
+  </div>
+
+  <script>
+    const questions = Array.from(document.querySelectorAll('.question'));
+    const pdots = Array.from(document.querySelectorAll('.pdot'));
+    const inputs = Array.from(document.querySelectorAll('.q-input'));
+    const continueButtons = Array.from(document.querySelectorAll('.q-continue'));
+    const revealButton = document.querySelector('.q-reveal');
+    const screenQ = document.getElementById('screen-questions');
+    const screenCard = document.getElementById('screen-card');
+
+    // Auto-resize, show buttons, and handle Enter key
+    inputs.forEach((input, i) => {
+      input.addEventListener('input', function () {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+
+        const hasText = this.value.trim().length > 0;
+        if (i < 2) {
+          continueButtons[i].classList.toggle('visible', hasText);
+        } else {
+          revealButton.classList.toggle('visible', hasText);
+        }
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (this.value.trim().length === 0) return;
+          if (i < 2) {
+            advance(i);
+          } else {
+            revealButton.click();
+          }
+        }
+      });
+    });
+
+    // Advance from one question to the next
+    function advance(from) {
+      questions[from].classList.remove('active');
+      pdots[from].classList.remove('active');
+      pdots[from].classList.add('done');
+
+      const next = from + 1;
+      if (next < questions.length) {
+        questions[next].classList.add('active');
+        pdots[next].classList.add('active');
+        // Focus the next input after transition starts
+        setTimeout(() => inputs[next].focus(), 200);
+      }
+    }
+
+    // Wire up continue buttons (Q1, Q2)
+    continueButtons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        if (inputs[i].value.trim().length > 0) advance(i);
+      });
+    });
+
+    // Wire up reveal button (Q3)
+    revealButton.addEventListener('click', () => {
+      if (inputs[2].value.trim().length === 0) return;
+
+      screenQ.style.opacity = '0';
+      screenQ.style.transition = 'opacity 0.6s ease';
+
+      setTimeout(() => {
+        screenQ.style.display = 'none';
+        screenCard.style.display = 'flex';
+
+        // Double rAF to allow display:flex to paint before fade starts
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            screenCard.style.opacity = '1';
+            screenCard.style.transition = 'opacity 0.6s ease';
+          });
+        });
+      }, 600);
+    });
+
+    // Focus Q1 input on load
+    inputs[0].focus();
+  </script>
+
+</body>
+</html>

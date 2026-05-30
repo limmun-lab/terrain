@@ -1,0 +1,308 @@
+<!-- FUTURE: Visual dictionary callouts — illustrated
+trade terminology inline with worker stories.
+One term per section, defined visually not textually. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terrain — Worker Story</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --serif:            'Georgia', 'Times New Roman', serif;
+      --mono:             'IBM Plex Mono', Courier, monospace;
+      --color-text-body:  rgba(245,240,235,0.88);
+      --color-text-muted: rgba(245,240,235,0.75);
+      --accent:           #0047FF;
+      --card-border:      rgba(245,240,235,0.15);
+      --side:             clamp(24px, 6vw, 48px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%);
+      background-attachment: fixed;
+      font-family: var(--mono);
+      color: var(--color-text-body);
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* ─── Grain texture overlay ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    /* ─── Navigation bar ─── */
+
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px var(--side);
+      background: rgba(13, 11, 9, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--color-text-body);
+    }
+
+    .nav-id {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Content wrapper ─── */
+
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 var(--side);
+    }
+
+    /* ─── Story sections ─── */
+
+    .story-section {
+      padding: 56px 0 52px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .impact {
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 5vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--color-text-body);
+      margin-bottom: 28px;
+    }
+
+    .impact--large {
+      font-size: clamp(2.2rem, 8vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+
+    .body-text {
+      font-family: var(--mono);
+      font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--color-text-body);
+    }
+
+    /* ─── Section dividers ─── */
+
+    .section-rule {
+      height: 1px;
+      background: var(--card-border);
+      margin: 0;
+    }
+
+    /* ─── Receipt block ─── */
+
+    .receipt {
+      font-family: var(--mono);
+      font-size: clamp(0.8125rem, 2.2vw, 0.875rem);
+      font-weight: 400;
+      line-height: 2;
+      color: var(--color-text-body);
+      white-space: pre;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .receipt::-webkit-scrollbar {
+      display: none;
+    }
+
+    .receipt-total {
+      color: var(--color-text-body);
+      border-top: 1px solid var(--card-border);
+      padding-top: 12px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ─── Footer ─── */
+
+    .story-footer {
+      text-align: center;
+      padding: 60px var(--side) 40px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .footer-quote {
+      font-family: var(--serif);
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      font-weight: 400;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .footer-sub {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Dot navigation ─── */
+
+    .dot-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 28px 24px 40px;
+    }
+
+    .dot {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background: rgba(245, 240, 235, 0.18);
+      transition: background 0.3s ease, width 0.3s ease;
+    }
+
+    .dot.active {
+      background: rgba(245, 240, 235, 0.82);
+      width: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-bar">
+    <a href="#" class="nav-back">← Back to Exploration</a>
+    <span class="nav-id">Terrain // 03</span>
+  </nav>
+
+  <main class="content">
+
+    <!-- SECTION 01 -->
+    <section class="story-section">
+      <p class="section-label">Section 01 / What I Thought It Was</p>
+      <p class="impact">I thought electricity was the job. It wasn't.</p>
+      <p class="body-text">Blake, 19, commercial electrician apprentice, Atlanta.
+First two weeks I moved conduit. Hundreds of feet of it.
+Up stairs, across floors, into gangboxes. Nobody handed
+me a wire. I thought I'd be learning the trade.
+I was learning whether I'd show up.</p>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- SECTION 02 -->
+    <section class="story-section">
+      <p class="section-label">Section 02 / What Surprised Me</p>
+      <p class="body-text">The journeyman didn't teach me. He tested me. Every
+task was a filter. Could I take direction without asking
+why? Could I find the gangbox without being shown twice?
+The teaching came later — when I proved I'd stay.</p>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- SECTION 03 -->
+    <section class="story-section">
+      <p class="section-label">Section 03 / The Cost of Failure</p>
+      <p class="impact">A mistake here isn't a bug report. It's a crushed hand, a ruined shift, or worse.</p>
+      <p class="body-text">I cross-threaded a coupling on my third week.
+Small mistake. The journeyman didn't yell.
+He made me take it apart and redo it. Twice.
+In front of the crew.
+That's how you learn what careful means.</p>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- SECTION 04 -->
+    <section class="story-section">
+      <p class="section-label">Section 04 / What I Spent</p>
+      <pre class="receipt">TOOL BELT + POUCH.............$85
+KLEIN LINEMAN PLIERS...........$42
+VOLTAGE TESTER + MULTIMETER....$65
+RED WING BOOTS.................$180
+FIRST MONTH GAS................$160
+UNION DUES.....................$85</pre>
+      <span class="receipt-total"><pre class="receipt" style="margin: 0;">TOTAL BEFORE FIRST PAYCHECK....$617</pre></span>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- SECTION 05 -->
+    <section class="story-section">
+      <p class="section-label">Section 05 / The Lesson at 18</p>
+      <p class="impact impact--large">Your body is the real tool.</p>
+      <p class="body-text">If you lift with your back because you want to look
+tough in front of the crew, you'll be sitting in a
+truck by 28 while someone else does the real work.
+Learn to use the hoist.
+Protect your knees before they ask for it.</p>
+    </section>
+
+  </main>
+
+  <footer class="story-footer">
+    <p class="footer-quote">One voice. One trade. One reality.</p>
+    <p class="footer-sub">Scroll for another worker story</p>
+  </footer>
+
+  <div class="dot-nav">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</body>
+</html>
