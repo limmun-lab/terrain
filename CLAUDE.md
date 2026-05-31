@@ -95,3 +95,34 @@ prototype/      — original HTML prototypes (design reference, do not delete)
 - No corporate language
 - No hedging
 - Speaks to the worker, not about them
+
+---
+
+## Prompting Checklist
+
+Before sending any design prompt, confirm:
+
+1. Colours specified with hex values or CSS variable names
+2. Fonts and weights named explicitly
+3. Layout described with specific values — not "centered" but "flexbox, align-items: center"
+4. Existing files referenced — @filename for components Claude should follow
+5. Verification instruction included — "confirm what changed"
+6. No subjective terms without concrete definitions — not "clean" but "no decorative elements, single accent colour only"
+
+If yes to all six — send it.
+If not — fill the gaps first.
+
+## Prompting Principles
+
+- Name the feeling before specifying the values.
+  The feeling is the brief. The prompt is the translation.
+- Specify what TO do, never what NOT to do.
+  "Use #0047FF cobalt" beats "remove the orange."
+- Two corrections maximum per session on the same issue.
+  After two — run /clear and start fresh with a better prompt.
+- Sketch before you prompt.
+  The loop converges in one round when design intent
+  exists before the session opens.
+- Metaphoric description is a valid prompt format.
+  "Like early morning light breaking through" is more
+  precise than a hex code for establishing feeling.

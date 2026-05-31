@@ -29,7 +29,7 @@ export default function HomePage() {
 
       <section
         className="relative z-10 flex min-h-screen items-center justify-center"
-        style={{ padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(3rem, 6vw, 6rem)" }}
+        style={{ padding: "clamp(2rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem)" }}
       >
         <div className="w-full max-w-[780px]">
 
@@ -45,7 +45,7 @@ export default function HomePage() {
             {...fadeUp(0.1)}
             className="mb-[clamp(1.25rem,3vw,2rem)] font-serif font-normal leading-[1.08] tracking-[-0.02em]"
             style={{
-              fontSize: "clamp(2.6rem, 7vw, 7rem)",
+              fontSize: "clamp(2.6rem, 7vw, 5.5rem)",
               color: "var(--color-text-body)",
             }}
           >
