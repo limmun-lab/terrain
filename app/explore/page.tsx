@@ -10,36 +10,42 @@ const CARDS = [
     name: "Outdoor and Infrastructure",
     subtitle: "Grid, energy, construction",
     bg: "linear-gradient(158deg, #0A2E38 0%, #103828 55%, #1C5040 100%)",
+    href: "/worker/alex",
   },
   {
     id: 2,
     name: "Building Systems",
     subtitle: "HVAC, plumbing, climate control",
     bg: "linear-gradient(158deg, #2E1308 0%, #5C2A10 55%, #7A3A18 100%)",
+    href: "/worker/rowan",
   },
   {
     id: 3,
     name: "Industrial and Technical",
     subtitle: "Machinery, robotics, maintenance",
     bg: "linear-gradient(158deg, #0C1E2E 0%, #182838 55%, #223050 100%)",
+    href: "/worker/parker",
   },
   {
     id: 4,
     name: "Healthcare Trades",
     subtitle: "Sonography, radiology, medical equipment",
     bg: "linear-gradient(158deg, #162818 0%, #204030 55%, #2C4E32 100%)",
+    href: "/worker/robin",
   },
   {
     id: 5,
     name: "High Specialisation",
     subtitle: "Pipeline, aerospace, underwater",
     bg: "linear-gradient(158deg, #050A1E 0%, #08102E 55%, #0A1648 100%)",
+    href: "/worker/charlie",
   },
   {
     id: 6,
     name: "Own Your Future",
     subtitle: "Trades as the path to ownership",
     bg: "linear-gradient(158deg, #2A1208 0%, #7A3A18 50%, #C07840 100%)",
+    href: "/worker/sam",
   },
 ];
 
@@ -147,7 +153,7 @@ export default function ExplorePage() {
             }}
           >
           <Link
-            href="/worker/blake"
+            href={card.href}
             className="group relative flex h-full flex-col justify-end overflow-hidden rounded-2xl"
             style={{
               background: card.bg,
