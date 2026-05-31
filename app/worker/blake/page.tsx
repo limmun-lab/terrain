@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const GRAIN =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E";
@@ -85,7 +88,10 @@ export default function BlakePage() {
       />
 
       {/* Nav */}
-      <nav
+      <motion.nav
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         style={{
           position: "sticky",
           top: 0,
@@ -114,7 +120,7 @@ export default function BlakePage() {
         >
           Terrain // 03
         </span>
-      </nav>
+      </motion.nav>
 
       {/* Content */}
       <main
@@ -126,7 +132,13 @@ export default function BlakePage() {
       >
 
         {/* 01 */}
-        <section style={{ padding: "56px 0 52px" }}>
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "56px 0 52px" }}
+        >
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought electricity was the job. It wasn't.</p>
           <p style={bodyText}>
@@ -136,12 +148,18 @@ export default function BlakePage() {
             me a wire. I thought I'd be learning the trade.
             I was learning whether I'd show up.
           </p>
-        </section>
+        </motion.section>
 
         <div style={rule} />
 
         {/* 02 */}
-        <section style={{ padding: "56px 0 52px" }}>
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "56px 0 52px" }}
+        >
           <p style={sectionLabel}>Section 02 / What Surprised Me</p>
           <p style={bodyText}>
             The journeyman didn't teach me. He tested me. Every
@@ -149,12 +167,18 @@ export default function BlakePage() {
             why? Could I find the gangbox without being shown twice?
             The teaching came later — when I proved I'd stay.
           </p>
-        </section>
+        </motion.section>
 
         <div style={rule} />
 
         {/* 03 */}
-        <section style={{ padding: "56px 0 52px" }}>
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "56px 0 52px" }}
+        >
           <p style={sectionLabel}>Section 03 / The Cost of Failure</p>
           <p style={impact}>
             A mistake here isn't a bug report. It's a crushed hand, a ruined shift, or worse.
@@ -166,12 +190,18 @@ export default function BlakePage() {
             In front of the crew.
             That's how you learn what careful means.
           </p>
-        </section>
+        </motion.section>
 
         <div style={rule} />
 
         {/* 04 — receipt */}
-        <section style={{ padding: "56px 0 52px" }}>
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "56px 0 52px" }}
+        >
           <p style={sectionLabel}>Section 04 / What I Spent</p>
           <pre className="no-scrollbar" style={receiptStyle}>{`TOOL BELT + POUCH.............$85
 KLEIN LINEMAN PLIERS...........$42
@@ -192,12 +222,18 @@ UNION DUES.....................$85`}</pre>
               style={{ ...receiptStyle, margin: 0 }}
             >{`TOTAL BEFORE FIRST PAYCHECK....$617`}</pre>
           </span>
-        </section>
+        </motion.section>
 
         <div style={rule} />
 
         {/* 05 */}
-        <section style={{ padding: "56px 0 52px" }}>
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "56px 0 52px" }}
+        >
           <p style={sectionLabel}>Section 05 / The Lesson at 18</p>
           <p style={impactLarge}>Your body is the real tool.</p>
           <p style={bodyText}>
@@ -207,12 +243,16 @@ UNION DUES.....................$85`}</pre>
             Learn to use the hoist.
             Protect your knees before they ask for it.
           </p>
-        </section>
+        </motion.section>
 
       </main>
 
       {/* CTA */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         style={{
           maxWidth: "640px",
           margin: "0 auto",
@@ -236,10 +276,14 @@ UNION DUES.....................$85`}</pre>
         >
           Find your path
         </Link>
-      </div>
+      </motion.div>
 
       {/* Footer */}
-      <footer
+      <motion.footer
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         style={{
           textAlign: "center",
           padding: `60px ${SIDE} 40px`,
@@ -271,7 +315,7 @@ UNION DUES.....................$85`}</pre>
         >
           ← Back to Exploration
         </Link>
-      </footer>
+      </motion.footer>
 
       {/* Dot nav */}
       <div

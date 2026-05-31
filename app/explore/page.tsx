@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const CARDS = [
   {
@@ -89,16 +90,26 @@ export default function ExplorePage() {
         color: "var(--color-text-body)",
       }}
     >
-      <header className="flex flex-shrink-0 items-center justify-center px-6 pb-2 pt-6">
+      <motion.header
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="flex flex-shrink-0 items-center justify-center px-6 pb-2 pt-6"
+      >
         <span
           className="font-serif font-normal tracking-[0.12em]"
           style={{ fontSize: "0.9rem" }}
         >
           Terrain
         </span>
-      </header>
+      </motion.header>
 
-      <div className="flex-shrink-0 px-7 pb-5 pt-2">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
+        className="flex-shrink-0 px-7 pb-5 pt-2"
+      >
         <p
           className="mb-2 font-sans text-[0.85rem] font-medium uppercase tracking-[0.08em]"
           style={{ color: "var(--color-text-muted)" }}
@@ -111,7 +122,7 @@ export default function ExplorePage() {
         >
           Horizon Reveal
         </h2>
-      </div>
+      </motion.div>
 
       <div
         ref={trackRef}
@@ -124,16 +135,24 @@ export default function ExplorePage() {
           scrollPaddingLeft: `${PEEK}px`,
         }}
       >
-        {CARDS.map((card) => (
-          <Link
+        {CARDS.map((card, i) => (
+          <motion.div
             key={card.id}
-            href="/worker/blake"
-            className="group relative flex flex-col justify-end overflow-hidden rounded-2xl"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.18 + i * 0.07 }}
             style={{
               flex: `0 0 calc(100vw - ${PEEK * 2}px)`,
               scrollSnapAlign: "start",
+            }}
+          >
+          <Link
+            href="/worker/blake"
+            className="group relative flex h-full flex-col justify-end overflow-hidden rounded-2xl"
+            style={{
               background: card.bg,
               textDecoration: "none",
+              display: "flex",
             }}
           >
             <div
@@ -172,11 +191,17 @@ export default function ExplorePage() {
               </p>
             </div>
           </Link>
+          </motion.div>
         ))}
         <div aria-hidden="true" style={{ flex: "0 0 1px" }} />
       </div>
 
-      <div className="flex flex-shrink-0 items-center justify-center gap-[7px] px-6 pb-[30px] pt-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.35 }}
+        className="flex flex-shrink-0 items-center justify-center gap-[7px] px-6 pb-[30px] pt-4"
+      >
         {CARDS.map((card, i) => (
           <button
             key={card.id}
@@ -197,7 +222,7 @@ export default function ExplorePage() {
             }}
           />
         ))}
-      </div>
+      </motion.div>
     </main>
   );
 }

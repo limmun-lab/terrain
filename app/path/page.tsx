@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const GRAIN =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E";
@@ -136,6 +137,11 @@ export default function YourPathPage() {
 
       {/* ── Screen 1: Questions ── */}
       {showQuestions && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
         <div
           style={{
             minHeight: "100dvh",
@@ -301,6 +307,7 @@ export default function YourPathPage() {
             })}
           </div>
         </div>
+        </motion.div>
       )}
 
       {/* ── Screen 2: Card ── */}
@@ -383,36 +390,17 @@ export default function YourPathPage() {
                         "linear-gradient(to bottom, #0033CC, #0047FF, #4D80FF)",
                     }}
                   />
-                  <span
-                    aria-hidden="true"
+
+                  <p
                     style={{
-                      position: "absolute",
-                      right: "4px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      fontFamily: "Georgia, Times New Roman, serif",
-                      fontSize: "5.5rem",
-                      fontWeight: 400,
-                      letterSpacing: "-0.03em",
-                      lineHeight: 1,
-                      color: "rgba(245,240,235,0.055)",
-                      pointerEvents: "none",
-                      userSelect: "none",
+                      fontFamily: "var(--font-mono), Courier, monospace",
+                      fontSize: "0.85rem",
+                      letterSpacing: "0.08em",
+                      color: "var(--accent)",
+                      marginBottom: "8px",
                     }}
                   >
                     {action.num}
-                  </span>
-                  <p
-                    style={{
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--accent)",
-                      marginBottom: "6px",
-                    }}
-                  >
-                    {action.label}
                   </p>
                   <p
                     style={{
@@ -447,7 +435,7 @@ export default function YourPathPage() {
                 textDecoration: "none",
               }}
             >
-              Start with action 01
+              Open r/electricians on Reddit
             </a>
 
             <p
