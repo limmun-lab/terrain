@@ -117,13 +117,13 @@ export default function ExplorePage() {
         className="flex-shrink-0 px-7 pb-5 pt-2"
       >
         <p
-          className="mb-2 font-sans text-[0.85rem] font-medium uppercase tracking-[0.08em]"
+          className="mb-2 text-center font-sans text-[0.85rem] font-medium uppercase tracking-[0.08em] md:text-left"
           style={{ color: "var(--color-text-muted)" }}
         >
           Explore by Life Pattern
         </p>
         <h2
-          className="font-serif font-normal leading-[1.08] tracking-[-0.02em]"
+          className="text-center font-serif font-normal leading-[1.08] tracking-[-0.02em] md:text-left"
           style={{ fontSize: "clamp(1.8rem, 6.5vw, 2.6rem)" }}
         >
           Horizon Reveal
