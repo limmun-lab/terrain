@@ -83,6 +83,7 @@ prototype/      — original HTML prototypes (design reference, do not delete)
 - One accent colour (#0047FF) used intentionally — never decoratively
 - Buttons fit their text — never fill containers
 - Text is always accessible — 0.75 opacity minimum
+- Every pixel is considered. Nothing is default. Every transition earns its place.
 
 ## Screen Architecture
 01 — / (home)              — Landing (terrain-hero.html)

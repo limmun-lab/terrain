@@ -17,8 +17,7 @@ export default function HomePage() {
     <main
       className="relative min-h-screen"
       style={{
-        background:
-          "linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%)",
+        background: "var(--bg-gradient)",
       }}
     >
       <div
@@ -53,8 +52,7 @@ export default function HomePage() {
             <em
               style={{
                 fontStyle: "italic",
-                background:
-                  "linear-gradient(to right, #0033CC 0%, #0047FF 50%, #4D80FF 100%)",
+                background: "var(--gradient-cobalt)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -83,9 +81,9 @@ export default function HomePage() {
                 "inline-block rounded-[6px] bg-accent px-5 py-[10px]",
                 "font-sans font-medium tracking-[0.04em]",
                 "transition-[filter,box-shadow,transform] duration-200 ease-out",
-                "shadow-[0_2px_12px_rgba(0,71,255,0.22)]",
+                "shadow-[0_2px_12px_var(--shadow-accent)]",
                 "hover:brightness-[1.15] hover:-translate-y-px hover:shadow-[0_4px_20px_rgba(0,71,255,0.38)]",
-                "active:translate-y-0 active:shadow-[0_2px_10px_rgba(0,71,255,0.22)]",
+                "active:translate-y-0 active:shadow-[0_2px_10px_var(--shadow-accent)]",
               ].join(" ")}
               style={{
                 fontSize: "clamp(0.85rem, 1.2vw, 0.95rem)",

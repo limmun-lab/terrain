@@ -11,6 +11,7 @@ const CARDS = [
     subtitle: "Grid, energy, construction",
     bg: "linear-gradient(158deg, #0A2E38 0%, #103828 55%, #1C5040 100%)",
     href: "/worker/alex",
+    image: "/trades/outdoor.jpg",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const CARDS = [
     subtitle: "HVAC, plumbing, climate control",
     bg: "linear-gradient(158deg, #2E1308 0%, #5C2A10 55%, #7A3A18 100%)",
     href: "/worker/rowan",
+    image: "/trades/building-systems.jpg",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const CARDS = [
     subtitle: "Machinery, robotics, maintenance",
     bg: "linear-gradient(158deg, #0C1E2E 0%, #182838 55%, #223050 100%)",
     href: "/worker/parker",
+    image: "/trades/industrial.jpg",
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const CARDS = [
     subtitle: "Sonography, radiology, medical equipment",
     bg: "linear-gradient(158deg, #162818 0%, #204030 55%, #2C4E32 100%)",
     href: "/worker/robin",
+    image: "/trades/healthcare.jpg",
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const CARDS = [
     subtitle: "Pipeline, aerospace, underwater",
     bg: "linear-gradient(158deg, #050A1E 0%, #08102E 55%, #0A1648 100%)",
     href: "/worker/charlie",
+    image: "/trades/welding.jpg",
   },
   {
     id: 6,
@@ -46,15 +51,32 @@ const CARDS = [
     subtitle: "Trades as the path to ownership",
     bg: "linear-gradient(158deg, #2A1208 0%, #7A3A18 50%, #C07840 100%)",
     href: "/worker/sam",
+    image: "/trades/construction.jpg",
   },
 ];
 
-const PEEK = 40;
-const GAP = 12;
+const PEEK = 24;
+const GAP = 10;
 
 export default function ExplorePage() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  // Restore carousel position from ?card= param on return from worker story
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cardParam = params.get("card");
+    if (!cardParam) return;
+    const idx = parseInt(cardParam, 10);
+    if (isNaN(idx) || idx < 0 || idx >= CARDS.length) return;
+    setActiveIndex(idx);
+    requestAnimationFrame(() => {
+      const track = trackRef.current;
+      if (!track) return;
+      const first = track.firstElementChild as HTMLElement | null;
+      if (!first) return;
+      track.scrollTo({ left: idx * (first.offsetWidth + GAP), behavior: "instant" });
+    });
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -89,10 +111,9 @@ export default function ExplorePage() {
 
   return (
     <main
-      className="flex h-dvh flex-col overflow-hidden"
+      className="flex flex-col"
       style={{
-        background:
-          "linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%)",
+        background: "var(--bg-gradient)",
         color: "var(--color-text-body)",
       }}
     >
@@ -132,7 +153,7 @@ export default function ExplorePage() {
 
       <div
         ref={trackRef}
-        className="no-scrollbar flex min-h-0 flex-1 overflow-x-scroll"
+        className="no-scrollbar flex h-[80vh] flex-shrink-0 overflow-x-scroll"
         style={{
           scrollSnapType: "x mandatory",
           WebkitOverflowScrolling: "touch",
@@ -150,6 +171,7 @@ export default function ExplorePage() {
             style={{
               flex: `0 0 calc(100vw - ${PEEK * 2}px)`,
               scrollSnapAlign: "start",
+              height: "80vh",
             }}
           >
           <Link
@@ -161,18 +183,31 @@ export default function ExplorePage() {
               display: "flex",
             }}
           >
+            {/* Photo layer — z-[1], Ken Burns */}
+            <div
+              aria-hidden="true"
+              className="card-img pointer-events-none absolute inset-0 z-[1]"
+              style={{
+                backgroundImage: `url('${card.image}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                animationDelay: `${-i * 4}s`,
+              }}
+            />
+
+            {/* Dark scrim — z-[2] */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 z-[2]"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 42%, rgba(0,0,0,0) 65%)",
+                  "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 70%)",
               }}
             />
             <div className="relative z-[3]" style={{ padding: "18px 22px 52px" }}>
               <p
                 className="mb-2 font-serif font-normal leading-[1.08] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(2rem, 8.5vw, 3.2rem)" }}
+                style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
               >
                 {card.name}
               </p>
@@ -190,7 +225,7 @@ export default function ExplorePage() {
                 style={{
                   fontSize: "0.85rem",
                   letterSpacing: "0.06em",
-                  color: "rgba(245, 240, 235, 0.75)",
+                  color: "var(--color-text-muted)",
                 }}
               >
                 Read a real story →

@@ -11,6 +11,13 @@
   --input-border-default: rgba(245, 240, 235, 0.45);
   --input-border-focus:   #0047FF;
   --caret-color:          #0047FF;
+
+  /* ─── Gradient + Shadow Tokens ─── */
+  --bg-gradient:              linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%);
+  --nav-bg:                   rgba(13, 11, 9, 0.88);
+  --gradient-cobalt:          linear-gradient(to right, #0033CC 0%, #0047FF 50%, #4D80FF 100%);
+  --gradient-cobalt-vertical: linear-gradient(to bottom, #0033CC, #0047FF, #4D80FF);
+  --shadow-accent:            var(--shadow-accent);
 }
 
 /* ─── Tailwind Theme Registration ─── */
@@ -70,7 +77,7 @@
 }
 
 .q-reveal-btn {
-  box-shadow: 0 2px 12px rgba(0, 71, 255, 0.22);
+  box-shadow: 0 2px 12px var(--shadow-accent);
   transition: opacity 0.4s ease, transform 0.4s ease, filter 0.2s ease, box-shadow 0.25s ease;
 }
 .q-reveal-btn:hover {
@@ -79,7 +86,7 @@
 }
 
 .card-cta-btn {
-  box-shadow: 0 2px 12px rgba(0, 71, 255, 0.22);
+  box-shadow: 0 2px 12px var(--shadow-accent);
   transition: filter 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 .card-cta-btn:hover {
@@ -89,7 +96,21 @@
 }
 .card-cta-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(0, 71, 255, 0.22);
+  box-shadow: 0 2px 10px var(--shadow-accent);
+}
+
+/* ─── Ken Burns ─── */
+@keyframes kenBurns {
+  from {
+    transform: scale(1) translate(0%, 0%);
+  }
+  to {
+    transform: scale(1.08) translate(-1.5%, -1%);
+  }
+}
+
+.card-img {
+  animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
 /* ─── Base ─── */

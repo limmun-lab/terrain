@@ -66,7 +66,7 @@ export default function RobinPage() {
       className="font-mono"
       style={{
         background:
-          "linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%)",
+          "var(--bg-gradient)",
         backgroundAttachment: "fixed",
         minHeight: "100vh",
         color: "var(--color-text-body)",
@@ -100,13 +100,13 @@ export default function RobinPage() {
           justifyContent: "space-between",
           alignItems: "center",
           padding: `16px ${SIDE}`,
-          background: "rgba(13, 11, 9, 0.88)",
+          background: "var(--nav-bg)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
           borderBottom: "1px solid var(--card-border)",
         }}
       >
-        <Link href="/explore" className="nav-back">
+        <Link href="/explore?card=3" className="nav-back">
           ← Back to Exploration
         </Link>
         <span
@@ -289,7 +289,7 @@ BACKGROUND CHECK + HEALTH SCREEN..$120`}</pre>
             borderRadius: "6px",
             padding: "10px 20px",
             textDecoration: "none",
-            boxShadow: "0 2px 12px rgba(0, 71, 255, 0.22)",
+            boxShadow: "0 2px 12px var(--shadow-accent)",
           }}
         >
           Find your path
@@ -321,7 +321,7 @@ BACKGROUND CHECK + HEALTH SCREEN..$120`}</pre>
           One voice. One trade. One reality.
         </p>
         <Link
-          href="/explore"
+          href="/explore?card=3"
           style={{
             fontFamily: "var(--font-mono), Courier, monospace",
             fontSize: "0.85rem",

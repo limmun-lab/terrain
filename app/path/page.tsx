@@ -114,8 +114,7 @@ export default function YourPathPage() {
   return (
     <div
       style={{
-        background:
-          "linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%)",
+        background: "var(--bg-gradient)",
         backgroundAttachment: "fixed",
         color: "var(--color-text-body)",
         fontFamily: "var(--font-mono), Courier, monospace",
@@ -355,7 +354,7 @@ export default function YourPathPage() {
                 lineHeight: 1.2,
                 letterSpacing: "-0.02em",
                 background:
-                  "linear-gradient(to right, #0033CC 0%, #0047FF 50%, #4D80FF 100%)",
+                  "var(--gradient-cobalt)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -387,7 +386,7 @@ export default function YourPathPage() {
                       bottom: 0,
                       width: "3px",
                       background:
-                        "linear-gradient(to bottom, #0033CC, #0047FF, #4D80FF)",
+                        "var(--gradient-cobalt-vertical)",
                     }}
                   />
 
