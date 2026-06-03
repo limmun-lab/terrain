@@ -1382,7 +1382,7 @@ that users can trust."
 
 ---
 
-### The Group 2 → Group 3 Curriculum Arc
+### The Group 2 → Group 3 Curriculum Arc — "Designers Who Ship"
 
 Each week produces a capability claim, not just a build:
 
@@ -1585,7 +1585,7 @@ closing line that lingers. Sara's LinkedIn format.
 **Curriculum Content**
 - [ ] Write Week 1-2 curriculum overview for sarajavan.com
 - [ ] Write Group 2 → Group 3 positioning page
-- [ ] Write coaching offer page (update services page)
+- [x] Write coaching offer page — sarajavan.com/services updated with "Designers Who Ship" engagement · commit 2 files, 375 insertions
 - [ ] Case study: Terrain as agentic design process
 
 ---
@@ -1613,9 +1613,12 @@ closing line that lingers. Sara's LinkedIn format.
 
 ### IMMEDIATE NEXT SESSION
 
-Start with: Populate Australian Notion research
-Then: Session 10 — CC4D Ch 7 + Ch 10
-Write first: LinkedIn post #1 (obsolescence anxiety)
+Curriculum is complete. All 15 sessions done. All artifacts committed.
+
+Start with: Content engine — move to dedicated chat
+Then: LinkedIn post #1 — obsolescence anxiety
+Then: Substack Notes — one per week cadence
+Then: Direct outreach — 5 Dubai/MENA target contacts
 
 ---
 
@@ -1647,14 +1650,12 @@ Write first: LinkedIn post #1 (obsolescence anxiety)
 - Design system integration becoming mandatory across
   all tools. CLAUDE.md compounds in value over time.
 
-**Process Book Entry 15 queued:**
+**Process Book Entry 15 — COMPLETE ✓**
 Source: CC4D Ch 7 + Ch 10
-Concept: Automation layers + tool spectrum decision
-Decision: Three-hook recipe + tool comparison guide created
-Friction: tsc hook speed caveat on large projects
-Teaching: "Who maintains this output?" is the only
-  question that matters when choosing a tool.
-Insight: "The tools are in sequence, not competition."
+Title: Automation layers
+Subtitle: Hooks, routines, and the difference between asking and enforcing
+Quote: "CLAUDE.md is a request. A hook is a rule. Know which one you need before you write it."
+Added to terrain_process_book.pdf — commit b23bf2b
 
 **To-do list update:**
 - [x] Session 10 — CC4D Ch 7 + Ch 10
@@ -1762,17 +1763,12 @@ or earlier if a post directly relates to current work.
 - Terrain tokens applied: #121314 bg, #0047FF cobalt,
   rgba(245,240,235,0.88) text
 
-**Process Book Entry 16 queued:**
+**Process Book Entry 16 — COMPLETE ✓**
 Source: TAD Ch 9
-Concept: Programmatic video for agentic design workflow
-Decision: Hyperframes over Remotion for YouTube channel
-Friction: FFmpeg not installed, no Homebrew,
-  evermeet.cx binary install workaround
-Teaching: "The same design loop — describe, review,
-  refine — works for video. The brief is the script.
-  The composition is the prototype."
-Insight: "When design tokens travel into video,
-  the brand becomes consistent across every medium."
+Title: Programmatic video
+Subtitle: When the design system extends into motion
+Quote: "The same token system that governs the UI governs the frame. One design language. Two outputs."
+Added to terrain_process_book.pdf — commit b23bf2b
 
 **To-do list update:**
 - [x] Session 10 — CC4D Ch 7 + Ch 10
