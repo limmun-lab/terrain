@@ -52,6 +52,9 @@ prototype/      — original HTML prototypes (design reference, do not delete)
 --caret-color:          #0047FF
 ```
 
+## Token System
+Reference token layer: src/tokens/m3-tokens.css — use M3 semantic names when adding new components.
+
 ## Typography
 - Font stack: system fonts — -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 - Serif display: Georgia, serif — impact statements and worker story headlines only
