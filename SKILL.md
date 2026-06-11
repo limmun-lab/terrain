@@ -1015,6 +1015,13 @@ Insight: "The feedback loop closes when the agent can see what you see."
 **Connected via:** .mcp.json in terrain project root
 **Status:** Live and populated
 
+**Second Brain workspace:** https://app.notion.com/p/37c97548b0608167b95fd3f3d5673de4
+Top-level page "Sara Javan — Second Brain" — operating system for the whole
+practice. Contains: Active Projects, Curriculum (Progress Tracker + Prompt
+Pattern Library), Terrain Process Book (16 entries with navigation index),
+Content Engine (Content Calendar, Essay Drafts, LinkedIn Posts), Clients &
+Network, Ideas & Parked.
+
 **Structure:**
 - Research / Market Validation
 - Research / Trade Data by Pattern
