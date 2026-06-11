@@ -1784,3 +1784,44 @@ Added to terrain_process_book.pdf — commit b23bf2b
 - [ ] Session 13 — TAD Ch 13-14 cases and future
 - [ ] Session 14 — Australian pipeline
 - [ ] Session 15 — Teaching framework assembly
+
+---
+
+## Process Book Entry 17 Queue
+
+**Entry 17: The Evidence Layer Needs Its Own Debugging**
+Source: Accessibility sweep — Session 16 (2026-06-11)
+
+The friction while it's fresh: the axe-core Playwright adapter refused to run
+with a page from browser.newPage() — it requires browser.newContext() then
+context.newPage(). The a11y workflow ran second-hand from a repo and still
+needed one local fix before the evidence layer worked. The books don't prepare
+you for this category: the tool that audits the product has its own bugs.
+
+Scan results (terrain-psi.vercel.app, 4 routes):
+- /worker/blake: zero violations untouched. The text-only screen with the
+  strictest typography rules is the one that passed clean. The design system
+  did its job where it had jurisdiction.
+- /path: critical — textareas had no accessible labels, no visible focus.
+  Fixed: aria-label per textarea matching the visible question, plus
+  :focus-visible outline using the existing --input-border-focus token.
+- /explore: serious — carousel dots below 24px touch target. Fixed: padded
+  hit areas (24x24 transparent buttons, dot as inner span). Visual weight
+  unchanged. 18-year-olds on phones are the literal audience.
+- /: color-contrast on the cobalt CTA — RESOLVED, and not how anyone
+  expected. The CTA was already the filled button spec and passes at rest
+  (4.59:1). Axe had sampled the page mid-fade-up animation and measured the
+  button at partial opacity — foreground #7a8cbe on #082f94, colours that
+  exist nowhere in the codebase. The fix went in the scan script, not the
+  design: wait for entrance animations to settle before measuring.
+
+Second tooling fix in one session. First the adapter needed
+browser.newContext(), then the scanner needed an animation-settle wait.
+The evidence layer needed two debugging passes before its evidence was true.
+
+Final state: 0 violations across all four routes, WCAG 2.2 AA.
+
+Teaching: automated evidence is still code. Budget a debugging pass for the
+audit tooling itself before trusting what it tells you — and before redesigning
+anything it flags. The third violation was never in the design. It was in the
+measurement. The design system, held to consistently, was already right.

@@ -249,19 +249,31 @@ export default function ExplorePage() {
             onClick={() => scrollToCard(i)}
             aria-label={`Card ${i + 1}`}
             style={{
-              height: "6px",
-              width: activeIndex === i ? "22px" : "6px",
-              borderRadius: "3px",
+              minWidth: "24px",
+              height: "24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "transparent",
               border: "none",
               padding: 0,
               cursor: "pointer",
-              background:
-                activeIndex === i
-                  ? "rgba(245, 240, 235, 0.85)"
-                  : "rgba(245, 240, 235, 0.2)",
-              transition: "background 0.3s ease, width 0.3s ease",
             }}
-          />
+          >
+            <span
+              aria-hidden="true"
+              style={{
+                height: "6px",
+                width: activeIndex === i ? "22px" : "6px",
+                borderRadius: "3px",
+                background:
+                  activeIndex === i
+                    ? "rgba(245, 240, 235, 0.85)"
+                    : "rgba(245, 240, 235, 0.2)",
+                transition: "background 0.3s ease, width 0.3s ease",
+              }}
+            />
+          </button>
         ))}
       </motion.div>
     </main>

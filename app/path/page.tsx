@@ -227,6 +227,7 @@ export default function YourPathPage() {
                     ref={(el) => {
                       textareaRefs.current[idx] = el;
                     }}
+                    aria-label={q.text}
                     rows={1}
                     spellCheck={false}
                     value={answers[idx]}
