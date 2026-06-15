@@ -312,14 +312,26 @@ export default function YourPathPage() {
 
       {/* ── Screen 2: Card ── */}
       {showCard && (
+        <>
+          <style>{`
+            .actions-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 10px;
+              margin-bottom: 20px;
+            }
+            @media (max-width: 640px) {
+              .actions-grid {
+                grid-template-columns: 1fr;
+              }
+            }
+          `}</style>
         <div
           style={{
-            minHeight: "100dvh",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
-            padding: `48px ${SIDE} 32px`,
+            padding: `48px ${SIDE} 48px`,
             opacity: phase === "card" ? 1 : 0,
             transition: "opacity 0.6s ease",
           }}
@@ -329,8 +341,8 @@ export default function YourPathPage() {
               background: "var(--card-bg)",
               border: "1px solid var(--card-border)",
               borderRadius: "12px",
-              padding: "clamp(32px, 7vw, 52px)",
-              maxWidth: "560px",
+              padding: "clamp(20px, 4vw, 32px)",
+              maxWidth: "760px",
               width: "100%",
             }}
           >
@@ -340,7 +352,7 @@ export default function YourPathPage() {
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--color-text-muted)",
-                marginBottom: "24px",
+                marginBottom: "12px",
               }}
             >
               Your Next Step
@@ -349,7 +361,7 @@ export default function YourPathPage() {
             <p
               style={{
                 fontFamily: "Georgia, Times New Roman, serif",
-                fontSize: "clamp(1.7rem, 6vw, 2.6rem)",
+                fontSize: "clamp(1.4rem, 4vw, 2rem)",
                 fontStyle: "italic",
                 fontWeight: 400,
                 lineHeight: 1.2,
@@ -359,13 +371,13 @@ export default function YourPathPage() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                marginBottom: "24px",
+                marginBottom: "16px",
               }}
             >
               Find one person already doing this work and ask them one honest question.
             </p>
 
-            <div style={{ marginBottom: "24px" }}>
+            <div className="actions-grid">
               {ACTIONS.map((action, i) => (
                 <div
                   key={i}
@@ -375,8 +387,7 @@ export default function YourPathPage() {
                     background: "rgba(245,240,235,0.034)",
                     border: "1px solid var(--card-border)",
                     borderRadius: "8px",
-                    padding: "18px 16px 18px 22px",
-                    marginBottom: i < ACTIONS.length - 1 ? "10px" : 0,
+                    padding: "16px 14px 16px 20px",
                   }}
                 >
                   <div
@@ -422,8 +433,8 @@ export default function YourPathPage() {
               className="card-cta-btn"
               style={{
                 display: "inline-block",
-                marginTop: "24px",
-                marginBottom: "24px",
+                marginTop: "16px",
+                marginBottom: "16px",
                 fontSize: "0.85rem",
                 fontWeight: 500,
                 letterSpacing: "0.06em",
@@ -443,7 +454,7 @@ export default function YourPathPage() {
                 fontSize: "0.85rem",
                 lineHeight: 1.85,
                 color: "var(--color-text-muted)",
-                marginBottom: "36px",
+                marginBottom: "20px",
               }}
             >
               The union hall, a job site fence line,
@@ -501,6 +512,7 @@ export default function YourPathPage() {
             ← Start over
           </Link>
         </div>
+        </>
       )}
     </div>
   );
