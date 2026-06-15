@@ -90,20 +90,6 @@
   box-shadow: 0 4px 20px rgba(0, 71, 255, 0.38);
 }
 
-.card-cta-btn {
-  box-shadow: 0 2px 12px var(--shadow-accent);
-  transition: filter 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-.card-cta-btn:hover {
-  filter: brightness(1.15);
-  box-shadow: 0 4px 20px rgba(0, 71, 255, 0.38);
-  transform: translateY(-1px);
-}
-.card-cta-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 10px var(--shadow-accent);
-}
-
 /* ─── Ken Burns ─── */
 @keyframes kenBurns {
   from {

@@ -426,34 +426,12 @@ export default function YourPathPage() {
               ))}
             </div>
 
-            <a
-              href="https://www.reddit.com/r/electricians/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-cta-btn"
-              style={{
-                display: "inline-block",
-                marginTop: "16px",
-                marginBottom: "16px",
-                fontSize: "0.85rem",
-                fontWeight: 500,
-                letterSpacing: "0.06em",
-                color: "var(--color-text-body)",
-                background: "var(--accent)",
-                borderRadius: "6px",
-                padding: "10px 20px",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-            >
-              Open r/electricians on Reddit
-            </a>
-
             <p
               style={{
                 fontSize: "0.85rem",
                 lineHeight: 1.85,
                 color: "var(--color-text-muted)",
+                marginTop: "20px",
                 marginBottom: "20px",
               }}
             >
