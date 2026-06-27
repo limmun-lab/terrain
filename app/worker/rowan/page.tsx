@@ -93,7 +93,7 @@ export default function RowanPage() {
       >
         <Image
           src="/trades/workers/rowan.webp"
-          alt="Rowan, industrial mechanic"
+          alt="Rowan, HVAC technician"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function RowanPage() {
               fontWeight: 300,
             }}
           >
-            Industrial Mechanic · Year One
+            HVAC Technician · Year One
           </p>
         </div>
       </div>
@@ -295,12 +295,12 @@ export default function RowanPage() {
                   }}
                 >
                   {[
-                    ["SOCKET SET + WRENCHES", "$145"],
-                    ["SAFETY GLASSES + GLOVES", "$45"],
-                    ["STEEL CAP BOOTS", "$180"],
+                    ["MANIFOLD GAUGE SET", "$189"],
+                    ["REFRIGERANT RECOVERY UNIT", "$320"],
+                    ["WORK BOOTS", "$165"],
                     ["FIRST MONTH TRANSPORT", "$130"],
                     ["UNION DUES", "$85"],
-                    ["MULTIMETER", "$55"],
+                    ["SAFETY GLASSES + GLOVES", "$35"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
                       <span style={{ textTransform: "uppercase" }}>{label}</span>
@@ -320,7 +320,7 @@ export default function RowanPage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$640</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$924</span>
                 </div>
 
                 <div

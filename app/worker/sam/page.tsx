@@ -93,7 +93,7 @@ export default function SamPage() {
       >
         <Image
           src="/trades/workers/sam.webp"
-          alt="Sam, healthcare equipment tech"
+          alt="Sam, plumber"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function SamPage() {
               fontWeight: 300,
             }}
           >
-            Healthcare Equipment Tech · Year One
+            Plumber · Year One
           </p>
         </div>
       </div>
@@ -299,12 +299,12 @@ export default function SamPage() {
                   }}
                 >
                   {[
-                    ["PRECISION SCREWDRIVER SET", "$85"],
-                    ["ANTI-STATIC WRIST STRAPS", "$25"],
-                    ["WORK SHOES (SLIP RESISTANT)", "$120"],
+                    ["PIPE WRENCHES SET", "$95"],
+                    ["TORCH + FITTINGS", "$110"],
+                    ["WORK BOOTS", "$165"],
                     ["FIRST MONTH TRANSPORT", "$110"],
-                    ["CALIBRATION TOOLS KIT", "$195"],
-                    ["CERTIFICATION EXAM FEE", "$180"],
+                    ["UNION DUES", "$85"],
+                    ["KNEE PADS (PROFESSIONAL)", "$55"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
                       <span style={{ textTransform: "uppercase" }}>{label}</span>
@@ -324,7 +324,7 @@ export default function SamPage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$715</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$620</span>
                 </div>
 
                 <div

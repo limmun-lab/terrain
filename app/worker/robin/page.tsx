@@ -93,7 +93,7 @@ export default function RobinPage() {
       >
         <Image
           src="/trades/workers/robin.webp"
-          alt="Robin, HVAC technician"
+          alt="Robin, diagnostic sonographer"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function RobinPage() {
               fontWeight: 300,
             }}
           >
-            HVAC Technician · Year One
+            Diagnostic Sonographer · Year One
           </p>
         </div>
       </div>
@@ -304,12 +304,12 @@ export default function RobinPage() {
                   }}
                 >
                   {[
-                    ["MANIFOLD GAUGE SET", "$189"],
-                    ["REFRIGERANT RECOVERY UNIT", "$320"],
-                    ["WORK BOOTS", "$165"],
+                    ["TRANSDUCER GEL + SUPPLIES", "$45"],
+                    ["COMPRESSION GLOVES", "$35"],
+                    ["WORK SHOES (NON-SLIP)", "$120"],
                     ["FIRST MONTH TRANSPORT", "$140"],
-                    ["UNION DUES", "$85"],
-                    ["SAFETY GLASSES + GLOVES", "$35"],
+                    ["CERTIFICATION EXAM FEE", "$285"],
+                    ["PROFESSIONAL MEMBERSHIP", "$95"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
                       <span style={{ textTransform: "uppercase" }}>{label}</span>
@@ -329,7 +329,7 @@ export default function RobinPage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$934</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$720</span>
                 </div>
 
                 <div

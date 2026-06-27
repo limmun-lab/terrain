@@ -93,7 +93,7 @@ export default function ParkerPage() {
       >
         <Image
           src="/trades/workers/parker.webp"
-          alt="Parker, wind technician"
+          alt="Parker, industrial mechanic"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function ParkerPage() {
               fontWeight: 300,
             }}
           >
-            Wind Technician · Year One
+            Industrial Mechanic · Year One
           </p>
         </div>
       </div>
@@ -303,12 +303,12 @@ export default function ParkerPage() {
                   }}
                 >
                   {[
-                    ["CLIMBING HARNESS", "$280"],
-                    ["SAFETY HELMET", "$95"],
-                    ["WORK BOOTS", "$165"],
+                    ["SOCKET SET + WRENCHES", "$145"],
+                    ["MULTIMETER + CLAMP METER", "$110"],
+                    ["STEEL CAP BOOTS", "$180"],
                     ["FIRST MONTH TRANSPORT", "$200"],
                     ["UNION DUES", "$85"],
-                    ["TOOL KIT", "$120"],
+                    ["SAFETY GLASSES + GLOVES", "$45"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
                       <span style={{ textTransform: "uppercase" }}>{label}</span>
@@ -328,7 +328,7 @@ export default function ParkerPage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$945</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$765</span>
                 </div>
 
                 <div

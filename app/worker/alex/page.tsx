@@ -93,7 +93,7 @@ export default function AlexPage() {
       >
         <Image
           src="/trades/workers/alex.webp"
-          alt="Alex, solar installer"
+          alt="Alex, wind technician"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function AlexPage() {
               fontWeight: 300,
             }}
           >
-            Solar Installer · Year One
+            Wind Technician · Year One
           </p>
         </div>
       </div>
@@ -301,11 +301,11 @@ export default function AlexPage() {
                   }}
                 >
                   {[
-                    ["HARNESS + LANYARD", "$210"],
+                    ["CLIMBING HARNESS", "$280"],
+                    ["SAFETY HELMET", "$95"],
                     ["WORK BOOTS", "$165"],
-                    ["MULTIMETER", "$55"],
                     ["FIRST MONTH TRANSPORT", "$120"],
-                    ["TOOL BELT", "$65"],
+                    ["TOOL KIT", "$85"],
                     ["UNION DUES", "$85"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
@@ -326,7 +326,7 @@ export default function AlexPage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$700</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$830</span>
                 </div>
 
                 <div

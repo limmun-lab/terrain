@@ -93,7 +93,7 @@ export default function CharliePage() {
       >
         <Image
           src="/trades/workers/charlie.webp"
-          alt="Charlie, plumber"
+          alt="Charlie, pipeline welder"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
           priority
@@ -128,7 +128,7 @@ export default function CharliePage() {
               fontWeight: 300,
             }}
           >
-            Plumber · Year One
+            Pipeline Welder · Year One
           </p>
         </div>
       </div>
@@ -303,12 +303,12 @@ export default function CharliePage() {
                   }}
                 >
                   {[
-                    ["PIPE WRENCHES SET", "$95"],
-                    ["TORCH + FITTINGS", "$110"],
-                    ["WORK BOOTS", "$165"],
+                    ["WELDING HOOD", "$185"],
+                    ["WELDING GLOVES + JACKET", "$145"],
+                    ["STEEL CAP BOOTS", "$180"],
                     ["FIRST MONTH TRANSPORT", "$150"],
                     ["UNION DUES", "$85"],
-                    ["KNEE PADS + GLOVES", "$40"],
+                    ["GRINDER + ACCESSORIES", "$110"],
                   ].map(([label, price]) => (
                     <Fragment key={label}>
                       <span style={{ textTransform: "uppercase" }}>{label}</span>
@@ -328,7 +328,7 @@ export default function CharliePage() {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
-                  <span style={{ fontWeight: 600, textAlign: "right" }}>$645</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$855</span>
                 </div>
 
                 <div
