@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const GRAIN =
@@ -86,41 +85,6 @@ export default function RowanPage() {
           mixBlendMode: "overlay",
         }}
       />
-
-      {/* Nav */}
-      <motion.nav
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 100,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: `16px ${SIDE}`,
-          background: "var(--nav-bg)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-          borderBottom: "1px solid var(--card-border)",
-        }}
-      >
-        <Link href="/explore?card=1" className="nav-back">
-          ← Back to Exploration
-        </Link>
-        <span
-          style={{
-            fontFamily: "var(--font-mono), Courier, monospace",
-            fontSize: "0.85rem",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: "var(--color-text-muted)",
-          }}
-        >
-          Terrain // 04
-        </span>
-      </motion.nav>
 
       {/* Content */}
       <main
@@ -254,76 +218,6 @@ FIRST MONTH TRANSPORT............$140`}</pre>
         </motion.section>
 
       </main>
-
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        style={{
-          maxWidth: "640px",
-          margin: "0 auto",
-          padding: `0 ${SIDE} 56px`,
-        }}
-      >
-        <Link
-          href="/path"
-          style={{
-            display: "inline-block",
-            fontSize: "0.85rem",
-            fontWeight: 500,
-            letterSpacing: "0.04em",
-            color: "var(--color-text-body)",
-            background: "var(--accent)",
-            borderRadius: "6px",
-            padding: "10px 20px",
-            textDecoration: "none",
-            boxShadow: "0 2px 12px var(--shadow-accent)",
-          }}
-        >
-          Find your path
-        </Link>
-      </motion.div>
-
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        style={{
-          textAlign: "center",
-          padding: `60px ${SIDE} 40px`,
-          borderTop: "1px solid var(--card-border)",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "Georgia, Times New Roman, serif",
-            fontSize: "clamp(0.9rem, 2.5vw, 1.05rem)",
-            fontWeight: 400,
-            color: "var(--color-text-muted)",
-            letterSpacing: "0.04em",
-            marginBottom: "10px",
-          }}
-        >
-          One voice. One trade. One reality.
-        </p>
-        <Link
-          href="/explore?card=1"
-          style={{
-            fontFamily: "var(--font-mono), Courier, monospace",
-            fontSize: "0.85rem",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: "var(--color-text-muted)",
-            textDecoration: "none",
-          }}
-        >
-          ← Back to Exploration
-        </Link>
-      </motion.footer>
 
       {/* Dot nav */}
       <div
