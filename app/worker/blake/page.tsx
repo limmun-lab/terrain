@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const GRAIN =
@@ -43,16 +45,6 @@ const bodyText: React.CSSProperties = {
   color: "var(--color-text-body)",
 };
 
-const receiptStyle: React.CSSProperties = {
-  fontFamily: "var(--font-mono), Courier, monospace",
-  fontSize: "clamp(0.8125rem, 2.2vw, 0.875rem)",
-  lineHeight: 2,
-  color: "var(--color-text-body)",
-  whiteSpace: "pre",
-  overflowX: "auto",
-  scrollbarWidth: "none",
-};
-
 const rule: React.CSSProperties = {
   height: "1px",
   background: "var(--card-border)",
@@ -85,6 +77,58 @@ export default function BlakePage() {
           mixBlendMode: "overlay",
         }}
       />
+
+      {/* Hero photo */}
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "70vh",
+          overflow: "hidden",
+          marginBottom: "48px",
+        }}
+      >
+        <Image
+          src="/trades/workers/blake.webp"
+          alt="Blake, electrician"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center 20%" }}
+          priority
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            padding: "48px 32px 28px",
+            background:
+              "linear-gradient(to top, rgba(18,19,20,0.92) 0%, transparent 100%)",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono), Courier, monospace",
+              fontSize: "0.75rem",
+              letterSpacing: "0.16em",
+              color: "var(--color-text-muted)",
+              marginBottom: "6px",
+            }}
+          >
+            BLAKE
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-mono), Courier, monospace",
+              fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
+              color: "var(--color-text-body)",
+              fontWeight: 300,
+            }}
+          >
+            Electrician · Year One
+          </p>
+        </div>
+      </div>
 
       {/* Content */}
       <main
@@ -167,25 +211,136 @@ export default function BlakePage() {
           style={{ padding: "56px 0 52px" }}
         >
           <p style={sectionLabel}>Section 04 / What I Spent</p>
-          <pre className="no-scrollbar" style={receiptStyle}>{`TOOL BELT + POUCH.............$85
-KLEIN LINEMAN PLIERS...........$42
-VOLTAGE TESTER + MULTIMETER....$65
-RED WING BOOTS.................$180
-FIRST MONTH GAS................$160
-UNION DUES.....................$85`}</pre>
-          <span
+          {/* Torn-paper receipt */}
+          <div
             style={{
-              display: "block",
-              borderTop: "1px solid var(--card-border)",
-              paddingTop: "12px",
-              marginTop: "4px",
+              position: "relative",
+              width: "fit-content",
+              maxWidth: "340px",
+              margin: "32px auto 0",
+              transform: "rotate(-1.5deg)",
+              filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.18))",
             }}
           >
-            <pre
-              className="no-scrollbar"
-              style={{ ...receiptStyle, margin: 0 }}
-            >{`TOTAL BEFORE FIRST PAYCHECK....$617`}</pre>
-          </span>
+            {/* Torn edge — top */}
+            <svg
+              viewBox="0 0 340 12"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              style={{ display: "block", width: "100%", height: "12px" }}
+            >
+              <path
+                d="M0,12 L0,6 Q8,0 16,5 T32,4 T48,7 T64,3 T80,6 T96,2 T112,7 T128,4 T144,8 T160,2 T176,6 T192,3 T208,7 T224,4 T240,8 T256,3 T272,6 T288,2 T304,7 T320,4 T336,8 T340,5 L340,12 Z"
+                fill="#f5f0e8"
+              />
+            </svg>
+
+            {/* Receipt body */}
+            <div
+              style={{
+                backgroundColor: "#f5f0e8",
+                padding: "20px 28px 16px",
+                fontFamily: "var(--font-mono), Courier, monospace",
+                fontSize: "0.8125rem",
+                lineHeight: 1.9,
+                color: "#2a2118",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              {/* Paper texture overlay */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundImage:
+                    "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.015) 3px, rgba(0,0,0,0.015) 4px)",
+                  pointerEvents: "none",
+                  zIndex: 1,
+                }}
+              />
+
+              {/* Receipt content */}
+              <div style={{ position: "relative", zIndex: 2 }}>
+                <div
+                  style={{
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    marginBottom: "16px",
+                    borderBottom: "1px dashed #b5a898",
+                    paddingBottom: "12px",
+                  }}
+                >
+                  TERRAIN // BLAKE
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr auto",
+                    gap: "0 16px",
+                  }}
+                >
+                  {[
+                    ["TOOL BELT + POUCH", "$85"],
+                    ["KLEIN LINEMAN PLIERS", "$42"],
+                    ["VOLTAGE TESTER + MULTIMETER", "$65"],
+                    ["RED WING BOOTS", "$180"],
+                    ["FIRST MONTH GAS", "$160"],
+                    ["UNION DUES", "$85"],
+                  ].map(([label, price]) => (
+                    <Fragment key={label}>
+                      <span style={{ textTransform: "uppercase" }}>{label}</span>
+                      <span style={{ textAlign: "right" }}>{price}</span>
+                    </Fragment>
+                  ))}
+                </div>
+
+                <div
+                  style={{
+                    borderTop: "1px dashed #b5a898",
+                    marginTop: "12px",
+                    paddingTop: "12px",
+                    display: "grid",
+                    gridTemplateColumns: "1fr auto",
+                    gap: "0 16px",
+                  }}
+                >
+                  <span style={{ fontWeight: 600 }}>TOTAL BEFORE FIRST PAYCHECK</span>
+                  <span style={{ fontWeight: 600, textAlign: "right" }}>$617</span>
+                </div>
+
+                <div
+                  style={{
+                    fontSize: "0.6875rem",
+                    color: "#8a7a6a",
+                    marginTop: "12px",
+                    textAlign: "center",
+                    letterSpacing: "0.08em",
+                  }}
+                >
+                  BEFORE FIRST PAYCHECK
+                </div>
+              </div>
+            </div>
+
+            {/* Torn edge — bottom */}
+            <svg
+              viewBox="0 0 340 12"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              style={{ display: "block", width: "100%", height: "12px", transform: "scaleY(-1)" }}
+            >
+              <path
+                d="M0,12 L0,6 Q8,0 16,5 T32,4 T48,7 T64,3 T80,6 T96,2 T112,7 T128,4 T144,8 T160,2 T176,6 T192,3 T208,7 T224,4 T240,8 T256,3 T272,6 T288,2 T304,7 T320,4 T336,8 T340,5 L340,12 Z"
+                fill="#f5f0e8"
+              />
+            </svg>
+          </div>
         </motion.section>
 
         <div style={rule} />
