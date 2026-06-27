@@ -92,7 +92,7 @@ export default function ParkerPage() {
         }}
       >
         <Image
-          src="/trades/workers/parker.webp"
+          src="/trades/workers/rowan.webp"
           alt="Parker, industrial mechanic"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}

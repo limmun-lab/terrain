@@ -92,7 +92,7 @@ export default function RowanPage() {
         }}
       >
         <Image
-          src="/trades/workers/rowan.webp"
+          src="/trades/workers/robin.webp"
           alt="Rowan, HVAC technician"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}

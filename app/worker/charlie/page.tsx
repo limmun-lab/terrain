@@ -92,7 +92,7 @@ export default function CharliePage() {
         }}
       >
         <Image
-          src="/trades/workers/charlie.webp"
+          src="/trades/workers/charlie-welder.webp"
           alt="Charlie, pipeline welder"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}

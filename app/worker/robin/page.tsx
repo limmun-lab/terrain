@@ -92,7 +92,7 @@ export default function RobinPage() {
         }}
       >
         <Image
-          src="/trades/workers/robin.webp"
+          src="/trades/workers/sam.webp"
           alt="Robin, diagnostic sonographer"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}

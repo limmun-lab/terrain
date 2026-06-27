@@ -92,7 +92,7 @@ export default function AlexPage() {
         }}
       >
         <Image
-          src="/trades/workers/alex.webp"
+          src="/trades/workers/parker.webp"
           alt="Alex, wind technician"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}

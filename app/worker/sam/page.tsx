@@ -92,7 +92,7 @@ export default function SamPage() {
         }}
       >
         <Image
-          src="/trades/workers/sam.webp"
+          src="/trades/workers/charlie.webp"
           alt="Sam, plumber"
           fill
           style={{ objectFit: "cover", objectPosition: "center 20%" }}
