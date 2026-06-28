@@ -384,34 +384,180 @@ export default function AlexPage() {
           </p>
         </motion.section>
 
-      </main>
-
-      {/* Dot nav */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          padding: "28px 24px 40px",
-        }}
-      >
-        {[0, 1, 2, 3, 4].map((i) => (
-          <span
-            key={i}
+        {/* Closing card */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ padding: "80px 0 48px" }}
+        >
+          <div
             style={{
-              display: "block",
-              height: "6px",
-              width: i === 2 ? "22px" : "6px",
-              borderRadius: "3px",
-              background:
-                i === 2
-                  ? "rgba(245, 240, 235, 0.82)"
-                  : "rgba(245, 240, 235, 0.18)",
+              borderLeft: "2px solid var(--accent)",
+              paddingLeft: "24px",
+              marginBottom: "48px",
             }}
-          />
-        ))}
-      </div>
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-serif, Georgia, serif)",
+                fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
+                lineHeight: 1.5,
+                color: "var(--color-text-body)",
+                fontWeight: 300,
+                fontStyle: "italic",
+              }}
+            >
+              The people who last in this trade learn to read the weather before they read the schedule.
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+            }}
+          >
+            <a
+              href="/path"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontFamily: "var(--font-mono), Courier, monospace",
+                fontSize: "0.8125rem",
+                letterSpacing: "0.08em",
+                color: "var(--color-text-muted)",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                transition: "color 0.2s ease",
+              }}
+            >
+              Find your path →
+            </a>
+            <div
+              style={{
+                borderTop: "1px solid var(--card-border)",
+                paddingTop: "20px",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-mono), Courier, monospace",
+                  fontSize: "0.6875rem",
+                  letterSpacing: "0.1em",
+                  color: "var(--color-text-muted)",
+                  opacity: 0.5,
+                  textTransform: "uppercase",
+                  marginBottom: "12px",
+                }}
+              >
+                Other trades
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "8px 16px",
+                }}
+              >
+                <a
+                  href="/worker/blake"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  Electrician
+                </a>
+                <a
+                  href="/worker/robin"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  Sonographer
+                </a>
+                <a
+                  href="/worker/charlie"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  Welder
+                </a>
+                <a
+                  href="/worker/parker"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  Mechanic
+                </a>
+                <a
+                  href="/worker/rowan"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  HVAC
+                </a>
+                <a
+                  href="/worker/sam"
+                  style={{
+                    fontFamily: "var(--font-mono), Courier, monospace",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.06em",
+                    color: "var(--color-text-muted)",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  Plumber
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+      </main>
 
     </div>
   );
