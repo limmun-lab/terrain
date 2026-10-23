@@ -33,7 +33,6 @@ No feeds, no counts, no likes. Trades are grouped by life pattern, not job title
 | Design memory for the agent | `CLAUDE.md` | A request. It tells the agent the tokens, type rules and principles. |
 | A rule the agent cannot skip | `.claude/hooks/check-hardcoded-values.sh`, wired in `.claude/settings.json` | A PreToolUse hook that blocks a file write or edit containing a hard-coded 6-digit hex colour. A request can be ignored. A hook cannot. |
 | Token system | `app/globals.css`, `src/tokens/` | One accent colour, minimum text size and opacity set as rules. |
-| Accessibility checks | `.claude/agents/a11y-reviewer.md`, `accessibility-sweep/` | Automated axe-core scan with Playwright, plus a reviewer agent for judgement calls. |
 | Process book | `teaching/terrain_process_book.pdf` | Sixteen entries on the decisions, the failures and what I changed. |
 | HTML prototypes | `prototype/` | Each screen was designed and validated as HTML before it was built in React. |
 | Project knowledge file | `SKILL.md` | The working log: research notes, decisions and session records. Long, and written for the agent as much as for people. |
@@ -55,10 +54,6 @@ No feeds, no counts, no likes. Trades are grouped by life pattern, not job title
 - The six worker stories are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people.
 - The hook checks 6-digit hex colours only. The paper-colour receipt card on the worker pages still uses fixed values that have not been moved into the token system. Extending the hook and tokenising the receipt are next.
 - Not built yet: a trade-specific output on the last screen, and the Australian content pipeline beyond the drafts in `teaching/`.
-
-## Credit
-
-`accessibility-sweep/` follows the accessibility sweep workflow from Agentic Design School's Claude Code for Designers course. The route list and the results are for this project. The workflow itself is theirs.
 
 ## Run it locally
 
