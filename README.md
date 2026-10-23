@@ -7,9 +7,11 @@ Case study: https://sarajavan.com/process/terrain
 
 Designed and directed by Sara Javan, Lead Product Designer, AI & Complex Systems, using an agentic build method with Claude Code. The repo is public so you can read how the agent was directed, not only what it produced.
 
-## The question behind it
+## The problem it solves
 
-Every system that needs insider knowledge to navigate is a dignity failure. A young person with no trade in the family, told that trades are a fallback, has no map. Terrain is the map before the maze.
+Say you are 18 and thinking about a trade. You don't know what the work is really like day to day. You don't know what it pays, how you get in, or what the risks are. Nobody in your family has done it, and the people around you may call it a fallback. So you guess, or you don't start.
+
+Terrain shows you the real picture before you commit. If you need an insider to explain a path, the path is badly designed. Terrain is the explanation you would get from that insider.
 
 ## The journey
 
