@@ -228,7 +228,7 @@ export default function ExplorePage() {
                   color: "var(--color-text-muted)",
                 }}
               >
-                Read a real story →
+                Read a worker story →
               </p>
             </div>
           </Link>
