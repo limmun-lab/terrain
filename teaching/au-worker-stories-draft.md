@@ -4,6 +4,8 @@
 Six stories. One per life pattern. Australian voice, Australian data.
 Stage 3 validation complete — all six pass.
 
+> Note: these six stories are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people.
+
 ---
 
 STORY 1 · SAM · ELECTRICIAN · QUEENSLAND

@@ -24,8 +24,8 @@ npm run lint    # ESLint
 ## Project layout
 ```
 app/            — Next.js App Router pages and layouts
-components/     — shared React components
 public/         — static assets
+src/tokens/     — M3 reference token layer
 prototype/      — original HTML prototypes (design reference, do not delete)
   terrain-hero.html
   terrain-explore.html
@@ -91,8 +91,8 @@ Reference token layer: src/tokens/m3-tokens.css — use M3 semantic names when a
 ## Screen Architecture
 01 — / (home)              — Landing (terrain-hero.html)
 02 — /explore              — Horizon Reveal (terrain-explore.html)
-03 — /story/[slug]         — Worker Story (terrain-worker-story.html)
-04 — /your-path            — Your Path (terrain-your-path.html)
+03 — /worker/[name]        — Worker Story (terrain-worker-story.html)
+04 — /path                 — Your Path (terrain-your-path.html)
 
 ## Voice
 - Direct, honest, warm

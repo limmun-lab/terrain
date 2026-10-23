@@ -73,9 +73,9 @@ but poorly equipped to advise on non-traditional pathways.
 
 ---
 
-## Market Validation
+## Market research (desk research, not user testing)
 
-### The shift is real and confirmed
+### The shift appears real (desk research)
 - Vocational-focused community college enrollment up ~20% since Spring 2020
   (National Student Clearinghouse)
 - Construction trades up 23%, HVAC up 7% (NAM/Clearinghouse 2024)
@@ -89,7 +89,7 @@ but poorly equipped to advise on non-traditional pathways.
    white-collar prestige
 4. Layoff resiliency — trades show significantly lower mass-layoff volatility
 
-### The white space is confirmed
+### The white space appears real (desk research)
 No existing platform addresses the pre-commitment exploratory phase.
 Every competitor assumes the user already decided. Terrain solves for before.
 
@@ -213,9 +213,9 @@ without rebuilding. Design for Sanity/Contentful even while using static files.
 **Source:** Gemini + GPT parallel research
 **Focus:** US trades landscape, apprenticeship pathways, barriers, competitors
 
-**Key validated findings:**
-- Market shift confirmed — enrollment and apprenticeship numbers are real
-- White space confirmed — no platform serves pre-commitment orientation
+**Key findings from desk research (not yet user-tested):**
+- Market shift indicated: enrollment and apprenticeship numbers point the same way
+- White space indicated: no platform found that serves pre-commitment orientation
 - "Life pattern" grouping > job title grouping — both models independently
 - Hidden costs are a major barrier — tools, transport, fees, not just tuition
 - The tribal knowledge gap is the core UX problem Terrain solves
@@ -743,14 +743,14 @@ Screens built. Navigation wired. Then deploy. The sequence matters.
 **Build decisions:**
 1. Navigation as design decision, not technical afterthought.
    - /explore cards link to /worker/blake
-   - Hover prompt: "Read a real story →" on desktop
+   - Hover prompt: "Read a worker story →" on desktop
    - /worker/blake footer: "← Back to Exploration" (not a dead end)
    - /path CTA: opens r/electricians in new tab
    - "← Start over" returns to /
    - Full journey: / → /explore → /worker/blake → /path
 
 2. Git identity fix required before Vercel would accept commit.
-   sarajavan@MacBook-Pro.local rejected — machine hostname not real email.
+   The default machine hostname was rejected as a commit email address.
    Fix: git config user.email, amend commit --reset-author, force push.
 
 **What broke (deployment friction log):**
@@ -1819,7 +1819,7 @@ Second tooling fix in one session. First the adapter needed
 browser.newContext(), then the scanner needed an animation-settle wait.
 The evidence layer needed two debugging passes before its evidence was true.
 
-Final state: 0 violations across all four routes, WCAG 2.2 AA.
+Final state: 0 axe-core violations across the four routes scanned. Automated scan only; no manual or screen-reader review yet.
 
 Teaching: automated evidence is still code. Budget a debugging pass for the
 audit tooling itself before trusting what it tells you — and before redesigning
