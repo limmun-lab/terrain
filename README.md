@@ -33,6 +33,7 @@ No feeds, no counts, no likes. Trades are grouped by life pattern, not job title
 | Design memory for the agent | `CLAUDE.md` | A request. It tells the agent the tokens, type rules and principles. |
 | A rule the agent cannot skip | `.claude/hooks/check-hardcoded-values.sh`, wired in `.claude/settings.json` | A PreToolUse hook that blocks a file write or edit containing a hard-coded 6-digit hex colour. A request can be ignored. A hook cannot. |
 | Token system | `app/globals.css`, `src/tokens/` | One accent colour, minimum text size and opacity set as rules. |
+| Accessibility scan | `scripts/a11y-scan.mjs`, `docs/ACCESSIBILITY.md` | Automated axe-core scan of ten routes, with raw results and a plain list of what it does not cover. |
 | Process book | `teaching/terrain_process_book.pdf` | Sixteen entries on the decisions, the failures and what I changed. |
 | HTML prototypes | `prototype/` | Each screen was designed and validated as HTML before it was built in React. |
 | Project knowledge file | `SKILL.md` | The working log: research notes, decisions and session records. Long, and written for the agent as much as for people. |
@@ -49,9 +50,9 @@ No feeds, no counts, no likes. Trades are grouped by life pattern, not job title
 ## What is true, and what is not yet
 
 - The build was directed by me with an agent. I am not claiming it was built solo.
-- The automated axe-core scan found no violations on the routes scanned. There has been no manual or screen-reader review, and I make no WCAG conformance claim.
+- The automated axe-core scan found no violations on the ten routes scanned on 26 October 2026 (details in `docs/ACCESSIBILITY.md`). Axe could not decide colour contrast on about 300 elements, and there has been no manual or screen-reader review, so I make no WCAG conformance claim.
 - The research behind the product is AI-assisted desk research. It is not user testing. I have not yet tested with real 18-year-olds. That is the honest next step.
-- The six worker stories are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people. Each story page carries a notice saying so.
+- The seven worker stories on the site, and the six Australian drafts in `teaching/`, are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people. Each story page on the site carries a notice saying so.
 - The hook checks 6-digit hex colours only. The paper-colour receipt card on the worker pages still uses fixed values that have not been moved into the token system. Extending the hook and tokenising the receipt are next.
 - Not built yet: a trade-specific output on the last screen, and the Australian content pipeline beyond the drafts in `teaching/`.
 
