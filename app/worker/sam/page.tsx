@@ -112,7 +112,7 @@ export default function SamPage() {
           <p
             style={{
               fontFamily: "var(--font-mono), Courier, monospace",
-              fontSize: "0.75rem",
+              fontSize: "0.8125rem",
               letterSpacing: "0.16em",
               color: "var(--color-text-muted)",
               marginBottom: "6px",
@@ -453,10 +453,9 @@ export default function SamPage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono), Courier, monospace",
-                  fontSize: "0.6875rem",
-                  letterSpacing: "0.1em",
+                  fontSize: "0.85rem",
+                  letterSpacing: "0.08em",
                   color: "var(--color-text-muted)",
-                  opacity: 0.5,
                   textTransform: "uppercase",
                   marginBottom: "12px",
                 }}
@@ -474,13 +473,11 @@ export default function SamPage() {
                   href="/worker/blake"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   Electrician
@@ -489,13 +486,11 @@ export default function SamPage() {
                   href="/worker/robin"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   Sonographer
@@ -504,13 +499,11 @@ export default function SamPage() {
                   href="/worker/alex"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   Wind
@@ -519,13 +512,11 @@ export default function SamPage() {
                   href="/worker/charlie"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   Welder
@@ -534,13 +525,11 @@ export default function SamPage() {
                   href="/worker/parker"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   Mechanic
@@ -549,13 +538,11 @@ export default function SamPage() {
                   href="/worker/rowan"
                   style={{
                     fontFamily: "var(--font-mono), Courier, monospace",
-                    fontSize: "0.75rem",
+                    fontSize: "0.8125rem",
                     letterSpacing: "0.06em",
                     color: "var(--color-text-muted)",
                     textDecoration: "none",
                     textTransform: "uppercase",
-                    opacity: 0.7,
-                    transition: "opacity 0.2s ease",
                   }}
                 >
                   HVAC
