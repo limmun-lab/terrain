@@ -173,7 +173,7 @@ export default function RobinPage() {
             until a hospital job fair showed me the imaging department.
             Associate degree, clinical hours, credential exam,
             then employment. No four-year requirement.
-            US median salary: $96,590 (Bureau of Labor Statistics, May 2025).
+            US median salary: $96,590 (<a href="https://www.bls.gov/ooh/healthcare/diagnostic-medical-sonographers.htm" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>Bureau of Labor Statistics, May 2025</a>).
             I had no idea this path was available.
           </p>
         </motion.section>
