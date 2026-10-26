@@ -142,6 +142,19 @@ export default function RobinPage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
@@ -153,14 +166,14 @@ export default function RobinPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought healthcare meant nursing. There are twelve other paths in.</p>
           <p style={bodyText}>
-            Robin, 20, diagnostic medical sonographer student, Seattle.
+            I&apos;m Robin from Seattle. I&apos;m a diagnostic medical sonographer student.
             I wanted to work in healthcare but couldn&apos;t picture
             myself in nursing.
             I didn&apos;t know sonography existed as a career path
             until a hospital job fair showed me the imaging department.
             Associate degree, clinical hours, credential exam,
             then employment. No four-year requirement.
-            Median salary: $89,000.
+            US median salary: $96,590 (Bureau of Labor Statistics, May 2025).
             I had no idea this path was available.
           </p>
         </motion.section>
@@ -293,7 +306,7 @@ export default function RobinPage() {
                     paddingBottom: "12px",
                   }}
                 >
-                  ROBIN · AGE 21
+                  ROBIN · AGE 20
                 </div>
 
                 <div

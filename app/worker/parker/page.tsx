@@ -142,6 +142,19 @@ export default function ParkerPage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
@@ -153,7 +166,7 @@ export default function ParkerPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought factories were dying. I walked into one running on robotics.</p>
           <p style={bodyText}>
-            Parker, 21, industrial machinery mechanic apprentice, Detroit.
+            I&apos;m Parker from Detroit. I&apos;m an industrial machinery mechanic apprentice.
             I&apos;d grown up hearing about the collapse of manufacturing.
             The first plant I walked into had six-axis robotic arms
             running in coordinated cells, vision systems checking
@@ -292,7 +305,7 @@ export default function ParkerPage() {
                     paddingBottom: "12px",
                   }}
                 >
-                  PARKER · AGE 22
+                  PARKER · AGE 21
                 </div>
 
                 <div

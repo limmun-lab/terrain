@@ -142,6 +142,19 @@ export default function CharliePage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
@@ -153,7 +166,7 @@ export default function CharliePage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought welding was the same everywhere. Shop and field are different jobs.</p>
           <p style={bodyText}>
-            Charlie, 22, welding apprentice, Houston.
+            I&apos;m Charlie from Houston. I&apos;m a welding apprentice.
             Shop work: stable hours, consistent materials,
             inspectors who come to you.
             Field work: weather, scaffolding, variable materials,
@@ -292,7 +305,7 @@ export default function CharliePage() {
                     paddingBottom: "12px",
                   }}
                 >
-                  CHARLIE · AGE 23
+                  CHARLIE · AGE 22
                 </div>
 
                 <div

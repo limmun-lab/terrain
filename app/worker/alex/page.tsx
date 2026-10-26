@@ -142,6 +142,19 @@ export default function AlexPage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
@@ -153,7 +166,7 @@ export default function AlexPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought wind energy was clean work. The turbines are not clean.</p>
           <p style={bodyText}>
-            Alex, 21, wind turbine technician trainee, Texas.
+            I&apos;m Alex from Texas. I&apos;m a wind turbine technician trainee.
             First site orientation was six hours of safety protocols
             before I saw the inside of a turbine.
             When I finally climbed one, I found 150 gallons of
@@ -290,7 +303,7 @@ export default function AlexPage() {
                     paddingBottom: "12px",
                   }}
                 >
-                  ALEX · AGE 20
+                  ALEX · AGE 21
                 </div>
 
                 <div

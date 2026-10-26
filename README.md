@@ -51,7 +51,7 @@ No feeds, no counts, no likes. Trades are grouped by life pattern, not job title
 - The build was directed by me with an agent. I am not claiming it was built solo.
 - The automated axe-core scan found no violations on the routes scanned. There has been no manual or screen-reader review, and I make no WCAG conformance claim.
 - The research behind the product is AI-assisted desk research. It is not user testing. I have not yet tested with real 18-year-olds. That is the honest next step.
-- The six worker stories are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people.
+- The six worker stories are AI-assisted drafts written as illustrative characters. They are not interviews with real workers, and the names are not real people. Each story page carries a notice saying so.
 - The hook checks 6-digit hex colours only. The paper-colour receipt card on the worker pages still uses fixed values that have not been moved into the token system. Extending the hook and tokenising the receipt are next.
 - Not built yet: a trade-specific output on the last screen, and the Australian content pipeline beyond the drafts in `teaching/`.
 

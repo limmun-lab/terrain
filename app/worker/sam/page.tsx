@@ -142,6 +142,19 @@ export default function SamPage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
@@ -153,7 +166,7 @@ export default function SamPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought I&apos;d be fixing leaks. I spent a month in a trench.</p>
           <p style={bodyText}>
-            Sam, 19, plumbing apprentice, Chicago.
+            I&apos;m Sam from Chicago. I&apos;m a plumbing apprentice.
             First month was excavation prep and observation.
             Commercial plumbing in a 40-story building means
             miles of pipe and drainage systems that start
@@ -288,7 +301,7 @@ export default function SamPage() {
                     paddingBottom: "12px",
                   }}
                 >
-                  SAM · AGE 22
+                  SAM · AGE 19
                 </div>
 
                 <div
