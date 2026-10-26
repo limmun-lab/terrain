@@ -166,7 +166,7 @@ export default function AlexPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought wind energy was clean work. The turbines are not clean.</p>
           <p style={bodyText}>
-            Alex, 21, wind turbine technician trainee, Texas.
+            I&apos;m Alex from Texas. I&apos;m a wind turbine technician trainee.
             First site orientation was six hours of safety protocols
             before I saw the inside of a turbine.
             When I finally climbed one, I found 150 gallons of

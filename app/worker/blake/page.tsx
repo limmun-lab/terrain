@@ -163,7 +163,7 @@ export default function BlakePage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought electricity was the job. It wasn't.</p>
           <p style={bodyText}>
-            Blake, 19, commercial electrician apprentice, Atlanta.
+            I&apos;m Blake from Atlanta. I&apos;m a commercial electrician apprentice.
             First two weeks I moved conduit. Hundreds of feet of it.
             Up stairs, across floors, into gangboxes. Nobody handed
             me a wire. I thought I'd be learning the trade.

@@ -166,7 +166,7 @@ export default function CharliePage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought welding was the same everywhere. Shop and field are different jobs.</p>
           <p style={bodyText}>
-            Charlie, 22, welding apprentice, Houston.
+            I&apos;m Charlie from Houston. I&apos;m a welding apprentice.
             Shop work: stable hours, consistent materials,
             inspectors who come to you.
             Field work: weather, scaffolding, variable materials,

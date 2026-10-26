@@ -166,7 +166,7 @@ export default function RobinPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought healthcare meant nursing. There are twelve other paths in.</p>
           <p style={bodyText}>
-            Robin, 20, diagnostic medical sonographer student, Seattle.
+            I&apos;m Robin from Seattle. I&apos;m a diagnostic medical sonographer student.
             I wanted to work in healthcare but couldn&apos;t picture
             myself in nursing.
             I didn&apos;t know sonography existed as a career path

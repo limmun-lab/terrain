@@ -166,7 +166,7 @@ export default function ParkerPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought factories were dying. I walked into one running on robotics.</p>
           <p style={bodyText}>
-            Parker, 21, industrial machinery mechanic apprentice, Detroit.
+            I&apos;m Parker from Detroit. I&apos;m an industrial machinery mechanic apprentice.
             I&apos;d grown up hearing about the collapse of manufacturing.
             The first plant I walked into had six-axis robotic arms
             running in coordinated cells, vision systems checking

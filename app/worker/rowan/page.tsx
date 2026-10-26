@@ -166,7 +166,7 @@ export default function RowanPage() {
           <p style={sectionLabel}>Section 01 / What I Thought It Was</p>
           <p style={impact}>I thought HVAC was about temperature. It&apos;s about pressure.</p>
           <p style={bodyText}>
-            Rowan, 20, HVAC-R apprentice, Phoenix.
+            I&apos;m Rowan from Phoenix. I&apos;m an HVAC-R apprentice.
             First week was carrying copper pipe and watching.
             Nobody handed me a gauge. The journeyman explained
             refrigerant pressure before he explained anything else.
