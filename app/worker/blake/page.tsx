@@ -139,6 +139,19 @@ export default function BlakePage() {
         }}
       >
 
+        <p
+          style={{
+            fontFamily: "var(--font-mono), Courier, monospace",
+            fontSize: "0.85rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "var(--color-text-muted)",
+            paddingTop: "24px",
+          }}
+        >
+          An illustrative story, written with AI assistance. Not an account from a real person.
+        </p>
+
         {/* 01 */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
