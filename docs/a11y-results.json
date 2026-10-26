@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-26",
+  "base": "http://localhost:3100",
+  "viewport": "390x844",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa"
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "violations": [],
+      "passes": 19,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 4
+        }
+      ]
+    },
+    {
+      "route": "/explore",
+      "violations": [],
+      "passes": 21,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 15
+        }
+      ]
+    },
+    {
+      "route": "/path",
+      "violations": [],
+      "passes": 21,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 4
+        }
+      ]
+    },
+    {
+      "route": "/worker/alex",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    },
+    {
+      "route": "/worker/blake",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    },
+    {
+      "route": "/worker/charlie",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    },
+    {
+      "route": "/worker/parker",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    },
+    {
+      "route": "/worker/robin",
+      "violations": [],
+      "passes": 21,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 41
+        }
+      ]
+    },
+    {
+      "route": "/worker/rowan",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    },
+    {
+      "route": "/worker/sam",
+      "violations": [],
+      "passes": 20,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 40
+        }
+      ]
+    }
+  ],
+  "totalViolations": 0
+}
