@@ -638,7 +638,7 @@ to its own standalone Next.js project.
   to a real project with proper architecture
 - Affects: deployment, version control, CLAUDE.md scope,
   future MCP connections, eventual backend
-- New location: ~/Documents/Cowork Playground/terrain
+- New location: its own standalone project folder
 
 **Stack:** Next.js · React · TypeScript · Tailwind CSS ·
 Framer Motion (mirror portfolio-2026 stack)
@@ -1011,7 +1011,7 @@ Insight: "The feedback loop closes when the agent can see what you see."
 
 ## Notion Workspace — Connected via MCP
 
-**URL:** https://www.notion.so/Terrain-37260c229fa680dcaec5cbc0691a1f1e
+**URL:** private Notion workspace (link removed for the public repo)
 **Connected via:** .mcp.json in terrain project root
 **Status:** Live and populated
 
@@ -1735,8 +1735,8 @@ or earlier if a post directly relates to current work.
 - Install: npx hyperframes@latest [project-name] init
 - Dev server: npm run dev → localhost:3002
 - Render: npx hyperframes@0.6.69 render --output file.mp4
-- FFmpeg location: ~/bin/ffmpeg
-- PATH: export PATH="$HOME/bin:$PATH"
+- FFmpeg: installed locally
+- PATH: set so the shell can find FFmpeg
 
 **Remotion vs Hyperframes decision:**
 - Remotion: React-based, full ecosystem, Lambda rendering

@@ -250,7 +250,6 @@ export default function YourPathPage() {
                       fontSize: "0.85rem",
                       letterSpacing: "0.08em",
                       color: "var(--color-text-muted)",
-                      opacity: 0.55,
                       marginTop: "10px",
                     }}
                   >
