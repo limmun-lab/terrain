@@ -131,25 +131,7 @@ export default function ExplorePage() {
         </span>
       </motion.header>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
-        className="flex-shrink-0 px-7 pb-5 pt-2"
-      >
-        <p
-          className="mb-2 text-center font-sans text-[0.85rem] font-medium uppercase tracking-[0.08em] md:text-left"
-          style={{ color: "var(--color-text-muted)" }}
-        >
-          Explore by Life Pattern
-        </p>
-        <h2
-          className="text-center font-serif font-normal leading-[1.08] tracking-[-0.02em] md:text-left"
-          style={{ fontSize: "clamp(1.8rem, 6.5vw, 2.6rem)" }}
-        >
-          Horizon Reveal
-        </h2>
-      </motion.div>
+      <h1 className="sr-only">Explore trades</h1>
 
       <div
         ref={trackRef}
@@ -219,16 +201,6 @@ export default function ExplorePage() {
                 }}
               >
                 {card.subtitle}
-              </p>
-              <p
-                className="mt-3 font-sans opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                style={{
-                  fontSize: "0.85rem",
-                  letterSpacing: "0.06em",
-                  color: "var(--color-text-muted)",
-                }}
-              >
-                Read a worker story →
               </p>
             </div>
           </Link>

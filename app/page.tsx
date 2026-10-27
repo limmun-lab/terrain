@@ -32,13 +32,6 @@ export default function HomePage() {
       >
         <div className="w-full max-w-[780px]">
 
-          <motion.span
-            {...fadeUp(0)}
-            className="mb-[clamp(1.25rem,3vw,2rem)] block font-sans text-[0.85rem] font-medium uppercase tracking-[0.08em]"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            Trades · Careers · Real life
-          </motion.span>
 
           <motion.h1
             {...fadeUp(0.1)}
