@@ -1,23 +1,33 @@
 @import "tailwindcss";
 
-/* ─── Terrain Design Tokens ─── */
+/* ─── Terrain Design Tokens: light greyscale ─── */
 :root {
-  --canvas-bg:            #121314;
-  --card-bg:              #241E14;
-  --card-border:          rgba(245, 240, 235, 0.15);
-  --color-text-body:      rgba(245, 240, 235, 0.88);
-  --color-text-muted:     rgba(245, 240, 235, 0.75);
-  --accent:               #0047FF;
-  --input-border-default: rgba(245, 240, 235, 0.45);
-  --input-border-focus:   #0047FF;
-  --caret-color:          #0047FF;
+  --canvas-bg:            rgb(246, 246, 246);
+  --card-bg:              rgb(255, 255, 255);
+  --card-border:          rgba(0, 0, 0, 0.12);
+  --color-text-body:      rgb(23, 23, 23);
+  --color-text-muted:     rgb(82, 82, 82);
+  --accent:               rgb(23, 23, 23);
+  --on-accent:            rgb(255, 255, 255);
+  --input-border-default: rgba(0, 0, 0, 0.45);
+  --input-border-focus:   rgb(23, 23, 23);
+  --caret-color:          rgb(23, 23, 23);
 
-  /* ─── Gradient + Shadow Tokens ─── */
-  --bg-gradient:              linear-gradient(to top, #0D0B09 0%, #181008 45%, #261A0A 100%);
-  --nav-bg:                   rgba(13, 11, 9, 0.88);
-  --gradient-cobalt:          linear-gradient(to right, #0033CC 0%, #0047FF 50%, #4D80FF 100%);
-  --gradient-cobalt-vertical: linear-gradient(to bottom, #0033CC, #0047FF, #4D80FF);
-  --shadow-accent:            rgba(0, 71, 255, 0.22);
+  /* Text and scrim over photographs */
+  --on-image:             rgb(255, 255, 255);
+  --on-image-muted:       rgba(255, 255, 255, 0.88);
+  --image-scrim:          linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0) 72%);
+  --image-filter:         grayscale(1);
+
+  /* Receipt */
+  --paper:                rgb(255, 255, 255);
+  --paper-ink:            rgb(23, 23, 23);
+  --paper-rule:           rgba(0, 0, 0, 0.25);
+
+  /* Surfaces kept as tokens so pages never hard-code colour */
+  --bg-gradient:          var(--canvas-bg);
+  --nav-bg:               rgba(246, 246, 246, 0.92);
+  --shadow-accent:        rgba(0, 0, 0, 0.12);
 }
 
 /* ─── Tailwind Theme Registration ─── */
@@ -53,41 +63,25 @@
   color: var(--color-text-body);
 }
 
-.q-input {
-  font-family: var(--font-mono), Courier, monospace;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid var(--input-border-default);
-  outline: none;
-  resize: none;
-  overflow: hidden;
-  caret-color: var(--caret-color);
-  transition: border-color 0.3s ease;
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.q-input:focus {
-  border-bottom-color: var(--input-border-focus);
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--shadow-accent);
 }
-.q-input:focus-visible {
-  outline: 2px solid var(--input-border-focus);
-  outline-offset: 6px;
-  border-radius: 2px;
-}
-
-.q-continue-btn {
-  color: var(--color-text-muted);
-  transition: color 0.2s ease, opacity 0.35s ease, transform 0.35s ease;
-}
-.q-continue-btn:hover {
-  color: var(--color-text-body);
-}
-
-.q-reveal-btn {
-  box-shadow: 0 2px 12px var(--shadow-accent);
-  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.2s ease, box-shadow 0.25s ease;
-}
-.q-reveal-btn:hover {
-  filter: brightness(1.15);
-  box-shadow: 0 4px 20px rgba(0, 71, 255, 0.38);
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* ─── Ken Burns ─── */
@@ -102,6 +96,11 @@
 
 .card-img {
   animation: kenBurns 20s ease-in-out infinite alternate;
+  filter: var(--image-filter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-img { animation: none; }
 }
 
 /* ─── Base ─── */

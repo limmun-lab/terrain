@@ -3,57 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { STORIES } from "../worker/stories";
 
-const CARDS = [
-  {
-    id: 1,
-    name: "Outdoor and Infrastructure",
-    subtitle: "Grid, energy, construction",
-    bg: "linear-gradient(158deg, #0A2E38 0%, #103828 55%, #1C5040 100%)",
-    href: "/worker/alex",
-    image: "/trades/outdoor.jpg",
-  },
-  {
-    id: 2,
-    name: "Building Systems",
-    subtitle: "HVAC, plumbing, climate control",
-    bg: "linear-gradient(158deg, #2E1308 0%, #5C2A10 55%, #7A3A18 100%)",
-    href: "/worker/rowan",
-    image: "/trades/building-systems.jpg",
-  },
-  {
-    id: 3,
-    name: "Industrial and Technical",
-    subtitle: "Machinery, robotics, maintenance",
-    bg: "linear-gradient(158deg, #0C1E2E 0%, #182838 55%, #223050 100%)",
-    href: "/worker/parker",
-    image: "/trades/industrial.jpg",
-  },
-  {
-    id: 4,
-    name: "Healthcare Trades",
-    subtitle: "Sonography, radiology, medical equipment",
-    bg: "linear-gradient(158deg, #162818 0%, #204030 55%, #2C4E32 100%)",
-    href: "/worker/robin",
-    image: "/trades/healthcare.jpg",
-  },
-  {
-    id: 5,
-    name: "High Specialisation",
-    subtitle: "Pipeline, aerospace, underwater",
-    bg: "linear-gradient(158deg, #050A1E 0%, #08102E 55%, #0A1648 100%)",
-    href: "/worker/charlie",
-    image: "/trades/welding.jpg",
-  },
-  {
-    id: 6,
-    name: "Own Your Future",
-    subtitle: "Trades as the path to ownership",
-    bg: "linear-gradient(158deg, #2A1208 0%, #7A3A18 50%, #C07840 100%)",
-    href: "/worker/sam",
-    image: "/trades/construction.jpg",
-  },
-];
+const CARDS = STORIES.map((story, i) => ({
+  id: i + 1,
+  name: story.trade,
+  subtitle: `${story.name} · ${story.state}`,
+  href: `/worker/${story.slug}`,
+  image: story.image,
+}));
 
 const PEEK = 24;
 const GAP = 10;
@@ -113,7 +71,7 @@ export default function ExplorePage() {
     <main
       className="flex flex-col"
       style={{
-        background: "var(--bg-gradient)",
+        background: "var(--canvas-bg)",
         color: "var(--color-text-body)",
       }}
     >
@@ -160,7 +118,7 @@ export default function ExplorePage() {
             href={card.href}
             className="group relative flex h-full flex-col justify-end overflow-hidden rounded-2xl"
             style={{
-              background: card.bg,
+              background: "var(--accent)",
               textDecoration: "none",
               display: "flex",
             }}
@@ -182,14 +140,13 @@ export default function ExplorePage() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 z-[2]"
               style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 70%)",
+                background: "var(--image-scrim)",
               }}
             />
             <div className="relative z-[3]" style={{ padding: "18px 22px 52px" }}>
               <p
                 className="mb-2 font-serif font-normal leading-[1.08] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
+                style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)", color: "var(--on-image)" }}
               >
                 {card.name}
               </p>
@@ -197,7 +154,7 @@ export default function ExplorePage() {
                 className="font-sans font-normal tracking-[0.01em]"
                 style={{
                   fontSize: "clamp(0.95rem, 3vw, 1.1rem)",
-                  color: "var(--color-text-muted)",
+                  color: "var(--on-image-muted)",
                 }}
               >
                 {card.subtitle}
@@ -219,7 +176,7 @@ export default function ExplorePage() {
           <button
             key={card.id}
             onClick={() => scrollToCard(i)}
-            aria-label={`Card ${i + 1}`}
+            aria-label={`Show ${card.name}`}
             style={{
               minWidth: "24px",
               height: "24px",
@@ -240,8 +197,8 @@ export default function ExplorePage() {
                 borderRadius: "3px",
                 background:
                   activeIndex === i
-                    ? "rgba(245, 240, 235, 0.85)"
-                    : "rgba(245, 240, 235, 0.2)",
+                    ? "var(--color-text-body)"
+                    : "var(--card-border)",
                 transition: "background 0.3s ease, width 0.3s ease",
               }}
             />
